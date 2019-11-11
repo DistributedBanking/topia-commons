@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>commons-idempotence</artifactId>
+	<parent>
+		<groupId>io.bitexpress.topia.commons</groupId>
+		<artifactId>commons-platform-root</artifactId>
+		<version>4.3.1-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	<name>commons-idempotence</name>
+	<description>commons-idempotence</description>
+
+	<properties>
+		<godmonth-status.version>0.3.1</godmonth-status.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>io.bitexpress.topia.commons</groupId>
+			<artifactId>commons-rpc</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.bitexpress.topia.commons</groupId>
+			<artifactId>commons-data</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.godmonth.status</groupId>
+			<artifactId>executor-core</artifactId>
+			<version>${godmonth-status.version}</version>
+		</dependency>
+	</dependencies>
+</project>

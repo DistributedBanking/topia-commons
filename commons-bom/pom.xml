@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>commons-bom</artifactId>
+
+	<parent>
+		<groupId>io.bitexpress.topia.commons</groupId>
+		<artifactId>commons-platform-root</artifactId>
+		<version>4.3.1-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<packaging>pom</packaging>
+	<name>commons bom</name>
+	<description>commons bom</description>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>io.bitexpress.topia.commons</groupId>
+				<artifactId>commons-concept</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.bitexpress.topia.commons</groupId>
+				<artifactId>commons-basic</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.bitexpress.topia.commons</groupId>
+				<artifactId>commons-rpc</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.bitexpress.topia.commons</groupId>
+				<artifactId>commons-data</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.bitexpress.topia.commons</groupId>
+				<artifactId>commons-jsr303-validation</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.bitexpress.topia.commons</groupId>
+				<artifactId>commons-jsr303-validation</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.bitexpress.topia.commons</groupId>
+				<artifactId>commons-pagination</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.bitexpress.topia.commons</groupId>
+				<artifactId>commons-idempotence</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+</project>
