@@ -17,6 +17,7 @@ import io.bitexpress.topia.commons.rpc.SystemCode;
  * @author shenyue
  *
  */
+@Deprecated
 public class ListResultResponseUtils<T> {
 	private static final Logger logger = LoggerFactory.getLogger(ListResultResponseUtils.class);
 

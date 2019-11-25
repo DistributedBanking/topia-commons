@@ -20,6 +20,7 @@ import io.bitexpress.topia.commons.rpc.ListResultResponse;
 import io.bitexpress.topia.commons.rpc.ResultResponse;
 import io.bitexpress.topia.commons.rpc.SystemCode;
 
+@Deprecated
 public class ResponseHelper<DOMAIN, MODEL> implements InitializingBean {
 	private static final Logger logger = LoggerFactory.getLogger(ResponseHelper.class);
 

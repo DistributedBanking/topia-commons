@@ -33,7 +33,13 @@
         <url>https://github.com/DistributedBanking/topia-commons</url>
         <tag>HEAD</tag>
     </scm>
-
+    <distributionManagement>
+        <snapshotRepository>
+            <id>42PayDeploySnapshot</id>
+            <name>G42 Pay Internal Repository</name>
+            <url>http://nexus.g42pay.com/repository/maven-snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
     <modules>
         <module>commons-concept</module>
         <module>commons-pagination</module>

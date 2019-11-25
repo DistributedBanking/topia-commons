@@ -29,11 +29,11 @@ public class ListBodyResponseUtils<T> {
         return rr;
     }
 
-    public static <T> ListBodyResponse<T> successListResultResponse(List<T> resultList) {
+    public static <T> ListBodyResponse<T> successListBodyResponse(List<T> resultList) {
         return codeListResultResponse(resultList, SystemCode.SUCCESS, BusinessCode.SUCCESS.name(), null);
     }
 
-    public static <T> ListBodyResponse<T> failureResultResponse(String message) {
+    public static <T> ListBodyResponse<T> failureBodyResponse(String message) {
         return codeListResultResponse(null, SystemCode.FAILURE, null, message);
     }
 
