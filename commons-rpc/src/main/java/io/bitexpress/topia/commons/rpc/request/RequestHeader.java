@@ -13,4 +13,9 @@ import java.io.Serializable;
 @Data
 @SuperBuilder
 public class RequestHeader implements Serializable {
+
+    /**
+     * 来源系统代码
+     */
+    private String sourceCode;
 }
