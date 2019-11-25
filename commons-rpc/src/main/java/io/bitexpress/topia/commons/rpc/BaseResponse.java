@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  * @author shenyue
  *
  */
+@Deprecated
 public class BaseResponse implements Serializable {
 	/**
 	 * 系统代码

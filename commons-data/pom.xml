@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>io.bitexpress.topia.commons</groupId>
 		<artifactId>commons-platform-root</artifactId>
-		<version>4.3.2-SNAPSHOT</version>
+		<version>5.0-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<name>commons data</name>
@@ -19,7 +19,6 @@
 			<plugin>
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<configuration>
-					<additionalparam>-Xdoclint:none</additionalparam>
 					<detectLinks>false</detectLinks>
 					<docfilessubdirs>true</docfilessubdirs>
 					<encoding>utf-8</encoding>
@@ -32,12 +31,8 @@
 					</links>
 					<javaApiLinks>
 						<property>
-							<name>api_1.6</name>
-							<value>http://docs.oracle.com/javase/6/docs/api/</value>
-						</property>
-						<property>
-							<name>api_1.7</name>
-							<value>http://download.java.net/jdk7/docs/api/</value>
+							<name>api_1.8</name>
+							<value>https://docs.oracle.com/javase/8/docs/api/</value>
 						</property>
 					</javaApiLinks>
 					<show>private</show>

@@ -15,8 +15,9 @@ import io.bitexpress.topia.commons.pagination.SortPageParam;
  * 分页查询请求
  * 
  * @author shenyue
- * @see QueryPageRequest2
+ * @see QueryPageRequest
  */
+@Deprecated
 public class QueryPageRequest implements Serializable{
 	/**
 	 * 查询开始时间

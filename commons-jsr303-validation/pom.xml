@@ -1,78 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-	<modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-	<artifactId>commons-jsr303-validation</artifactId>
-	<parent>
-		<groupId>io.bitexpress.topia.commons</groupId>
-		<artifactId>commons-platform-root</artifactId>
-		<version>4.3.2-SNAPSHOT</version>
-		<relativePath>../pom.xml</relativePath>
-	</parent>
-	<name>commons basic</name>
-	<description>commons basic</description>
+    <artifactId>commons-jsr303-validation</artifactId>
+    <parent>
+        <groupId>io.bitexpress.topia.commons</groupId>
+        <artifactId>commons-platform-root</artifactId>
+        <version>5.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <name>commons jsr303 validation</name>
+    <description>commons jsr303 validation</description>
 
 
-	<reporting>
-		<plugins>
-			<plugin>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<configuration>
-					<additionalparam>-Xdoclint:none</additionalparam>
-					<detectLinks>false</detectLinks>
-					<docfilessubdirs>true</docfilessubdirs>
-					<encoding>utf-8</encoding>
-					<docencoding>utf-8</docencoding>
-					<charset>utf-8</charset>
-					<links>
-						<link>http://commons.apache.org/proper/commons-lang/javadocs/api-release</link>
-						<link>http://docs.oracle.com/javaee/6/api</link>
-						<link>http://docs.jboss.org/hibernate/validator/5.1/api/</link>
-					</links>
-					<javaApiLinks>
-						<property>
-							<name>api_1.6</name>
-							<value>http://docs.oracle.com/javase/6/docs/api/</value>
-						</property>
-						<property>
-							<name>api_1.7</name>
-							<value>http://download.java.net/jdk7/docs/api/</value>
-						</property>
-					</javaApiLinks>
-					<show>private</show>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-jxr-plugin</artifactId>
-				<configuration>
-					<inputEncoding>utf-8</inputEncoding>
-					<outputEncoding>utf-8</outputEncoding>
-				</configuration>
-			</plugin>
-		</plugins>
-	</reporting>
-	<dependencies>
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>javax.validation</groupId>
-			<artifactId>validation-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-collections4</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.bitexpress.topia.commons</groupId>
-			<artifactId>commons-rpc</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-	</dependencies>
+    <reporting>
+        <plugins>
+            <plugin>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <doclint>none</doclint>
+                    <detectLinks>false</detectLinks>
+                    <docfilessubdirs>true</docfilessubdirs>
+                    <encoding>utf-8</encoding>
+                    <docencoding>utf-8</docencoding>
+                    <charset>utf-8</charset>
+                    <links>
+                        <link>http://commons.apache.org/proper/commons-lang/javadocs/api-release</link>
+                        <link>http://docs.oracle.com/javaee/6/api</link>
+                        <link>http://docs.jboss.org/hibernate/validator/5.1/api/</link>
+                    </links>
+                    <javaApiLinks>
+                        <property>
+                            <name>api_1.6</name>
+                            <value>http://docs.oracle.com/javase/6/docs/api/</value>
+                        </property>
+                        <property>
+                            <name>api_1.7</name>
+                            <value>http://download.java.net/jdk7/docs/api/</value>
+                        </property>
+                    </javaApiLinks>
+                    <show>private</show>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </reporting>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.bitexpress.topia.commons</groupId>
+            <artifactId>commons-rpc</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 </project>

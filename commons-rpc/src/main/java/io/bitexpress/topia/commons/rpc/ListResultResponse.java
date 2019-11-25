@@ -12,6 +12,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  *
  * @param <T>
  */
+@Deprecated
 public class ListResultResponse<T> extends BaseResponse {
 	/**
 	 * 处理结果列表

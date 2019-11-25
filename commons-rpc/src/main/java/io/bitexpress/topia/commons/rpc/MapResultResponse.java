@@ -10,8 +10,11 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  * 
  * @author shenyue
  *
- * @param <T>
+ * @param <K>
+ * @param <V>
+ *
  */
+@Deprecated
 public class MapResultResponse<K, V> extends BaseResponse {
 	/**
 	 * 返回结果
