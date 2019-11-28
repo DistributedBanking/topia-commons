@@ -1,6 +1,7 @@
 package io.bitexpress.topia.commons.rpc;
 
-import org.testng.annotations.Test;
+
+import org.junit.jupiter.api.Test;
 
 public class BaseResponseTest {
 
