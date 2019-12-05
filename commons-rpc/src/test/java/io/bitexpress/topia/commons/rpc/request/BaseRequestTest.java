@@ -2,18 +2,19 @@ package io.bitexpress.topia.commons.rpc.request;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 /**
  * <p></p >
  *
  * @author shenyue
  */
-class BodyRequestTest {
-
+class BaseRequestTest {
     @Test
-    public void testToString() {
+    public void testToString(){
         RequestHeader
                 header = RequestHeader.builder().sourceCode("sss").build();
-        BodyRequest build = BodyRequest.bodyRequestBuilder().header(header).body("fff").build();
+        BaseRequest build = BaseRequest.builder().header(header).build();
         System.out.println(build);
     }
 }

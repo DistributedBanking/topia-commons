@@ -14,7 +14,7 @@ import javax.validation.constraints.NotBlank;
  */
 
 @Data
-@SuperBuilder(builderMethodName = "bodyRequestBuilder")
+@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Issuer {

@@ -2,7 +2,9 @@ package io.bitexpress.topia.commons.rpc.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -20,6 +22,8 @@ import java.util.List;
 @SuperBuilder(builderMethodName = "listBodyBuilder")
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
 public class ListBodyResponse<T> extends BaseResponse {
 	/**
 	 * 处理结果列表
