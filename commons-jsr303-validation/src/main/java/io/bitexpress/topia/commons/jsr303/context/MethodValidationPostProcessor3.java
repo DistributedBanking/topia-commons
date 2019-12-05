@@ -8,18 +8,14 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.validation.beanvalidation.MethodValidationPostProcessor;
 
-/**
- * @deprecated use MethodValidationPostProcessor3
- */
-@Deprecated
-public class MethodValidationPostProcessor2 extends
-        MethodValidationPostProcessor implements InitializingBean {
+public class MethodValidationPostProcessor3 extends
+		MethodValidationPostProcessor implements InitializingBean {
 
-    public void afterPropertiesSet() {
-        Pointcut pointcut = new AnnotationMatchingPointcut(Validated.class,
-                true);
-        Advice advice = new MethodValidationInterceptor2();
-        this.advisor = new DefaultPointcutAdvisor(pointcut, advice);
-    }
+	public void afterPropertiesSet() {
+		Pointcut pointcut = new AnnotationMatchingPointcut(Validated.class,
+				true);
+		Advice advice = new MethodValidationInterceptor3();
+		this.advisor = new DefaultPointcutAdvisor(pointcut, advice);
+	}
 
 }
