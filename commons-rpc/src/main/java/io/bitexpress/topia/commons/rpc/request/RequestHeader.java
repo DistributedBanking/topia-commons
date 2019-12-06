@@ -1,6 +1,8 @@
 package io.bitexpress.topia.commons.rpc.request;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.Valid;
@@ -13,6 +15,8 @@ import java.io.Serializable;
  */
 @Data
 @SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
 public class RequestHeader implements Serializable {
 
     /**
