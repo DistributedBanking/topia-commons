@@ -17,78 +17,79 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.data.domain.Page;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ResponseHelper2<DOMAIN, MODEL> implements InitializingBean {
-	private static final Logger logger = LoggerFactory.getLogger(ResponseHelper2.class);
+public class ResponseHelper2<DOMAIN, MODEL extends Serializable> implements InitializingBean {
+    private static final Logger logger = LoggerFactory.getLogger(ResponseHelper2.class);
 
-	protected Class<MODEL> modelClass;
+    protected Class<MODEL> modelClass;
 
-	protected Mapper mapper;
+    protected Mapper mapper;
 
-	protected Function<DOMAIN, MODEL> function;
+    protected Function<DOMAIN, MODEL> function;
 
-	@Override
-	public void afterPropertiesSet() throws Exception {
-		function = new DozerMapperFunction<DOMAIN, MODEL>(mapper, modelClass);
-	}
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        function = new DozerMapperFunction<DOMAIN, MODEL>(mapper, modelClass);
+    }
 
-	public BodyResponse<MODEL> returnSuccess(DOMAIN domain) {
-		if (domain != null) {
-			return BodyResponseUtils.successBodyResponse(getFunction().apply(domain));
-		} else {
-			return BodyResponseUtils.successBodyResponse(null);
-		}
-	}
+    public BodyResponse<MODEL> returnSuccess(DOMAIN domain) {
+        if (domain != null) {
+            return BodyResponseUtils.successBodyResponse(getFunction().apply(domain));
+        } else {
+            return BodyResponseUtils.successBodyResponse(null);
+        }
+    }
 
-	public ListBodyResponse<MODEL> returnListSuccess(List<DOMAIN> domainList) {
-		if (CollectionUtils.isNotEmpty(domainList)) {
-			List<MODEL> modelList = Lists.transform(domainList, getFunction());
-			return ListBodyResponseUtils.successListBodyResponse(modelList);
-		} else {
-			return ListBodyResponseUtils.successListBodyResponse(null);
-		}
-	}
+    public ListBodyResponse<MODEL> returnListSuccess(List<DOMAIN> domainList) {
+        if (CollectionUtils.isNotEmpty(domainList)) {
+            List<MODEL> modelList = Lists.transform(domainList, getFunction());
+            return ListBodyResponseUtils.successListBodyResponse(modelList);
+        } else {
+            return ListBodyResponseUtils.successListBodyResponse(null);
+        }
+    }
 
-	public BodyResponse<Pagination<MODEL>> returnPageSuccess(Page<DOMAIN> domainPage) {
-		Pagination<MODEL> transform = PageTransformer.transform(domainPage, getFunction());
-		return BodyResponseUtils.successBodyResponse(transform);
-	}
+    public BodyResponse<Pagination<MODEL>> returnPageSuccess(Page<DOMAIN> domainPage) {
+        Pagination<MODEL> transform = PageTransformer.transform(domainPage, getFunction());
+        return BodyResponseUtils.successBodyResponse(transform);
+    }
 
-	public BodyResponse<Pagination<MODEL>> returnPageSuccess(Pagination<DOMAIN> domainPage) {
-		Pagination<MODEL> transform = PageTransformer.transform(domainPage, getFunction());
-		return BodyResponseUtils.successBodyResponse(transform);
-	}
+    public BodyResponse<Pagination<MODEL>> returnPageSuccess(Pagination<DOMAIN> domainPage) {
+        Pagination<MODEL> transform = PageTransformer.transform(domainPage, getFunction());
+        return BodyResponseUtils.successBodyResponse(transform);
+    }
 
-	public <K> BodyResponse<MODEL> returnError(K key, Exception e) {
-		logger.error("", e);
-		BodyResponse<MODEL> sor = BodyResponseUtils.codeBodyResponse(null, SystemCode.FAILURE, null,
-				e.getMessage());
+    public <K> BodyResponse<MODEL> returnError(K key, Exception e) {
+        logger.error("", e);
+        BodyResponse<MODEL> sor = BodyResponseUtils.codeBodyResponse(null, SystemCode.FAILURE, null,
+                e.getMessage());
 
-		sor.getHeader().setTrace(ExceptionUtils.getStackTrace(e));
-		if (key != null) {
-			DOMAIN domain = findModel(key);
-			if (domain != null) {
-				sor.setBody(getFunction().apply(domain));
-			}
-		}
-		return sor;
-	}
+        sor.getHeader().setTrace(ExceptionUtils.getStackTrace(e));
+        if (key != null) {
+            DOMAIN domain = findModel(key);
+            if (domain != null) {
+                sor.setBody(getFunction().apply(domain));
+            }
+        }
+        return sor;
+    }
 
-	protected DOMAIN findModel(Object key) {
-		return null;
-	}
+    protected DOMAIN findModel(Object key) {
+        return null;
+    }
 
-	public void setModelClass(Class<MODEL> modelClass) {
-		this.modelClass = modelClass;
-	}
+    public void setModelClass(Class<MODEL> modelClass) {
+        this.modelClass = modelClass;
+    }
 
-	public void setMapper(Mapper mapper) {
-		this.mapper = mapper;
-	}
+    public void setMapper(Mapper mapper) {
+        this.mapper = mapper;
+    }
 
-	public Function<DOMAIN, MODEL> getFunction() {
-		return function;
-	}
+    public Function<DOMAIN, MODEL> getFunction() {
+        return function;
+    }
 
 }
