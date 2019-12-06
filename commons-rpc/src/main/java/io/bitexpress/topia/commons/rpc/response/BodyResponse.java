@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
+
 /**
  * 包含处理数据的响应组件
  *
@@ -19,7 +21,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class BodyResponse<T> extends BaseResponse {
+public class BodyResponse<T extends Serializable> extends BaseResponse {
     /**
      * 返回结果
      */

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 
 /**
  * <p>请求发起方</p >
@@ -17,7 +18,7 @@ import javax.validation.constraints.NotBlank;
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Issuer {
+public class Issuer implements Serializable {
     /**
      * 发起方代码
      */

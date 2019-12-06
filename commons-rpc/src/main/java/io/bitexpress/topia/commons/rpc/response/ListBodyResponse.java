@@ -9,6 +9,7 @@ import lombok.experimental.SuperBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -24,7 +25,7 @@ import java.util.List;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class ListBodyResponse<T> extends BaseResponse {
+public class ListBodyResponse<T extends Serializable> extends BaseResponse {
 	/**
 	 * 处理结果列表
 	 */

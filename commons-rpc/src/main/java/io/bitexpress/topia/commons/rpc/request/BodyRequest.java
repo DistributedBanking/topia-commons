@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
+
 /**
  * <p>含请求体请求</p>
  *
@@ -18,7 +20,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class BodyRequest<T> extends BaseRequest {
+public class BodyRequest<T extends Serializable> extends BaseRequest {
 
     /**
      * 请求体

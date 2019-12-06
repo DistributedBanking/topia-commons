@@ -6,8 +6,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -21,7 +21,7 @@ import java.util.List;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class ListBodyRequest<T> extends BaseRequest {
+public class ListBodyRequest<T extends Serializable> extends BaseRequest {
     /**
      * 列表请求体
      */
