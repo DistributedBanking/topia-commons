@@ -10,6 +10,7 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -20,7 +21,7 @@ import java.util.List;
 public class ListBodyResponseUtils<T> {
     private static final Logger logger = LoggerFactory.getLogger(ListBodyResponseUtils.class);
 
-    public static <T> ListBodyResponse<T> codeListResultResponse(List<T> bodyList, SystemCode systemCode,
+    public static <T extends Serializable> ListBodyResponse<T> codeListResultResponse(List<T> bodyList, SystemCode systemCode,
                                                                  String businessCode, String message) {
         ResponseHeader responseHeader = ResponseHeader.builder().systemCode(systemCode).businessCode(businessCode).message(message).build();
         ListBodyResponse<T> rr = new ListBodyResponse<T>();
@@ -29,15 +30,15 @@ public class ListBodyResponseUtils<T> {
         return rr;
     }
 
-    public static <T> ListBodyResponse<T> successListBodyResponse(List<T> resultList) {
+    public static <T extends Serializable> ListBodyResponse<T> successListBodyResponse(List<T> resultList) {
         return codeListResultResponse(resultList, SystemCode.SUCCESS, BusinessCode.SUCCESS.name(), null);
     }
 
-    public static <T> ListBodyResponse<T> failureBodyResponse(String message) {
+    public static <T extends Serializable> ListBodyResponse<T> failureBodyResponse(String message) {
         return codeListResultResponse(null, SystemCode.FAILURE, null, message);
     }
 
-    public static <T> ListBodyResponse<T> errorCodeExceptionListResultResponse(ErrorCodeException e) {
+    public static <T extends Serializable> ListBodyResponse<T> errorCodeExceptionListResultResponse(ErrorCodeException e) {
         logger.info("code:{},message:{}", e.getErrorCode(), e.getMessage());
         ResponseHeader responseHeader = ResponseHeader.builder().systemCode(SystemCode.SUCCESS).businessCode(e.getErrorCode()).message(e.getMessage()).build();
         ListBodyResponse<T> rr = new ListBodyResponse<T>();
@@ -45,11 +46,11 @@ public class ListBodyResponseUtils<T> {
         return rr;
     }
 
-    public static <T> ListBodyResponse<T> exceptionListResultResponse(Throwable throwable) {
+    public static <T extends Serializable> ListBodyResponse<T> exceptionListResultResponse(Throwable throwable) {
         return exceptionListResultResponse(throwable, false);
     }
 
-    public static <T> ListBodyResponse<T> exceptionListResultResponse(Throwable throwable, boolean enableTrace) {
+    public static <T extends Serializable> ListBodyResponse<T> exceptionListResultResponse(Throwable throwable, boolean enableTrace) {
         if (throwable instanceof ErrorCodeException) {
             return errorCodeExceptionListResultResponse((ErrorCodeException) throwable);
         }
@@ -58,7 +59,7 @@ public class ListBodyResponseUtils<T> {
         return rr;
     }
 
-    public static <T> List<T> parse(ListBodyResponse<T> listResultResponse, String... silentBusinessCodes) {
+    public static <T extends Serializable> List<T> parse(ListBodyResponse<T> listResultResponse, String... silentBusinessCodes) {
         BaseResponseUtils.parse(listResultResponse, silentBusinessCodes);
         return listResultResponse.getBody();
     }

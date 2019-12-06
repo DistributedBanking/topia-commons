@@ -5,9 +5,10 @@ import io.bitexpress.topia.commons.rpc.BusinessCode;
 import io.bitexpress.topia.commons.rpc.SystemCode;
 import io.bitexpress.topia.commons.rpc.response.BodyResponse;
 import io.bitexpress.topia.commons.rpc.response.ResponseHeader;
-import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.Serializable;
 
 /**
  * 包含处理数据的响应组件
@@ -18,8 +19,8 @@ import org.slf4j.LoggerFactory;
 public class BodyResponseUtils {
     private static final Logger logger = LoggerFactory.getLogger(BodyResponseUtils.class);
 
-    public static <T> BodyResponse<T> codeBodyResponse(T result, SystemCode systemCode, String businessCode,
-                                                       String message) {
+    public static <T extends Serializable> BodyResponse<T> codeBodyResponse(T result, SystemCode systemCode, String businessCode,
+                                                                            String message) {
         ResponseHeader responseHeader = ResponseHeader.builder().systemCode(systemCode).businessCode(businessCode).message(message).build();
         BodyResponse<T> rr = new BodyResponse<T>();
         rr.setHeader(responseHeader);
@@ -27,15 +28,15 @@ public class BodyResponseUtils {
         return rr;
     }
 
-    public static <T> BodyResponse<T> successBodyResponse(T result) {
+    public static <T extends Serializable> BodyResponse<T> successBodyResponse(T result) {
         return codeBodyResponse(result, SystemCode.SUCCESS, BusinessCode.SUCCESS.name(), null);
     }
 
-    public static <T> BodyResponse<T> failureBodyResponse(String message) {
+    public static <T extends Serializable> BodyResponse<T> failureBodyResponse(String message) {
         return codeBodyResponse(null, SystemCode.FAILURE, null, message);
     }
 
-    public static <T> BodyResponse<T> errorCodeExceptionBodyResponse(ErrorCodeException e) {
+    public static <T extends Serializable> BodyResponse<T> errorCodeExceptionBodyResponse(ErrorCodeException e) {
         logger.info("code:{},message:{}", e.getErrorCode(), e.getMessage());
         ResponseHeader responseHeader = ResponseHeader.builder().systemCode(SystemCode.SUCCESS).businessCode(e.getErrorCode()).message(e.getMessage()).build();
         BodyResponse<T> rr = new BodyResponse<T>();
@@ -43,11 +44,11 @@ public class BodyResponseUtils {
         return rr;
     }
 
-    public static <T> BodyResponse<T> exceptionBodyResponse(Throwable throwable) {
+    public static <T extends Serializable> BodyResponse<T> exceptionBodyResponse(Throwable throwable) {
         return exceptionBodyResponse(throwable, false);
     }
 
-    public static <T> BodyResponse<T> exceptionBodyResponse(Throwable throwable, boolean enableTrace) {
+    public static <T extends Serializable> BodyResponse<T> exceptionBodyResponse(Throwable throwable, boolean enableTrace) {
         if (throwable instanceof ErrorCodeException) {
             return errorCodeExceptionBodyResponse((ErrorCodeException) throwable);
         }
@@ -56,7 +57,7 @@ public class BodyResponseUtils {
         return bodyResponse;
     }
 
-    public static <T> T parse(BodyResponse<T> resultResponse, String... silentBusinessCodes) {
+    public static <T extends Serializable> T parse(BodyResponse<T> resultResponse, String... silentBusinessCodes) {
         BaseResponseUtils.parse(resultResponse, silentBusinessCodes);
         return resultResponse.getBody();
     }

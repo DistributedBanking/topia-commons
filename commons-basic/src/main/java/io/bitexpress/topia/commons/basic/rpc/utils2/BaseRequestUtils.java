@@ -14,6 +14,7 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 
@@ -33,17 +34,17 @@ public class BaseRequestUtils {
         return BaseRequest.builder().build();
     }
 
-    public static <T> BodyRequest<T> body(T body) {
+    public static <T extends Serializable> BodyRequest<T> body(T body) {
         return new BodyRequest<>();
     }
 
-    public static <T> ListBodyRequest<T> listBodyRequest(List<T> listBody) {
+    public static <T extends Serializable> ListBodyRequest<T> listBodyRequest(List<T> listBody) {
         ListBodyRequest listBodyRequest = new ListBodyRequest();
         listBodyRequest.setBody(listBody);
         return listBodyRequest;
     }
 
-    public static <T> BodyRequest<T> listBodyRequest(T body) {
+    public static <T extends Serializable> BodyRequest<T> listBodyRequest(T body) {
         BodyRequest bodyRequest = new BodyRequest();
         bodyRequest.setBody(body);
         return bodyRequest;
