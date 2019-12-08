@@ -1,38 +1,46 @@
 package io.bitexpress.topia.commons.basic.replenishment;
 
-import java.util.Date;
-
+import lombok.Setter;
+import lombok.ToString;
 import org.apache.commons.lang3.Range;
 import org.joda.time.DateTime;
 import org.joda.time.Interval;
 import org.joda.time.Period;
 
+import java.util.Date;
+
+@ToString
 public class ReplenishmentRange {
-	public static final Period DEFAULT_START_PERIOD = Period.days(30);
 
-	public static final Period DEFAULT_END_PERIOD = Period.minutes(5);
+    public static final Period DEFAULT_START_PERIOD = Period.days(30);
 
-	private Period startPeriod = DEFAULT_START_PERIOD;
+    public static final Period DEFAULT_END_PERIOD = Period.minutes(5);
 
-	private Period endPeriod = DEFAULT_END_PERIOD;
+    @Setter
+    private Period startPeriod;
+    @Setter
+    private Period endPeriod;
 
-	public void setStartPeriod(Period startPeriod) {
-		this.startPeriod = startPeriod;
-	}
+    public ReplenishmentRange() {
+        startPeriod = DEFAULT_START_PERIOD;
+        endPeriod = DEFAULT_END_PERIOD;
+    }
 
-	public void setEndPeriod(Period endPeriod) {
-		this.endPeriod = endPeriod;
-	}
 
-	public Interval getInterval() {
-		DateTime startTime = new DateTime().minus(startPeriod);
-		DateTime endTime = new DateTime().minus(endPeriod);
-		return new Interval(startTime, endTime);
-	}
+    public Interval getInterval() {
+        DateTime startTime = new DateTime().minus(startPeriod);
+        DateTime endTime = new DateTime().minus(endPeriod);
+        return new Interval(startTime, endTime);
+    }
 
-	public Range<Date> getRange() {
-		Interval interval = getInterval();
-		return Range.between(interval.getStart().toDate(), interval.getEnd().toDate());
-	}
+    @Deprecated
+    public Range<Date> getRange() {
+        return getDateRange();
+    }
+
+    public Range<Date> getDateRange() {
+        Interval interval = getInterval();
+        return Range.between(interval.getStart().toDate(), interval.getEnd().toDate());
+    }
 
 }
