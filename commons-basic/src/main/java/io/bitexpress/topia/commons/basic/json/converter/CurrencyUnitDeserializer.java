@@ -7,7 +7,7 @@ import org.joda.money.CurrencyUnit;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
-
+@Deprecated
 public class CurrencyUnitDeserializer extends JsonDeserializer<CurrencyUnit> {
 
 	@Override

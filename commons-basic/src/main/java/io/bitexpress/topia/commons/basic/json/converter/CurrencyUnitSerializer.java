@@ -7,7 +7,7 @@ import org.joda.money.CurrencyUnit;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
-
+@Deprecated
 public class CurrencyUnitSerializer extends JsonSerializer<CurrencyUnit> {
 
 	@Override
