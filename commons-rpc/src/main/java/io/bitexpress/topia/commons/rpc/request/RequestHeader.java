@@ -25,9 +25,9 @@ public class RequestHeader implements Serializable {
     private String sourceCode;
 
     /**
-     * 发起方鉴权
+     * 请求发起方
      */
     @Valid
-    private Issuer issuerPrivilege;
+    private Issuer issuer;
 
 }
