@@ -30,4 +30,8 @@ public class RequestHeader implements Serializable {
     @Valid
     private Issuer issuer;
 
+    /**
+     * 是否开启缓存
+     */
+    private Boolean cacheable;
 }
