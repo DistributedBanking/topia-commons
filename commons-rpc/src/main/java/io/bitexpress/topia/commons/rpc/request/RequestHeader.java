@@ -33,5 +33,5 @@ public class RequestHeader implements Serializable {
     /**
      * 是否开启缓存
      */
-    private Boolean cacheable;
+    private boolean cacheable;
 }
