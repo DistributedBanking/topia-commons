@@ -7,6 +7,7 @@ import lombok.experimental.SuperBuilder;
 
 import javax.validation.Valid;
 import java.io.Serializable;
+import java.util.Locale;
 
 /**
  * <p></p >
@@ -31,7 +32,12 @@ public class RequestHeader implements Serializable {
     private Issuer issuer;
 
     /**
-     * 是否开启缓存
+     * 是否开启缓存.空表示AUTO
      */
-    private boolean cacheable;
+    private Cacheable cacheable;
+
+    /**
+     * 来源本地代码
+     */
+    private Locale locale;
 }
