@@ -19,7 +19,7 @@ public class CustomeValidate {
 		}
 	}
 
-	public static void fail(String errorCode, String message, final Object... values) {
+	public static  <T> T fail(String errorCode, String message, final Object... values) {
 		if (StringUtils.isNotBlank(message) && ArrayUtils.isNotEmpty(values)) {
 			message = String.format(message, values);
 		}
