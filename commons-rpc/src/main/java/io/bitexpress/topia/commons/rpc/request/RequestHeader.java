@@ -19,7 +19,7 @@ import java.util.Locale;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RequestHeader implements Serializable {
-
+    public static final RequestHeader EMPTY_HEADER = new RequestHeader();
     /**
      * 来源系统代码
      */

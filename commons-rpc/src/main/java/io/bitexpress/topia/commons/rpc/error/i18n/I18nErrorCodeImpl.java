@@ -1,4 +1,6 @@
-package io.bitexpress.topia.commons.rpc.error;
+package io.bitexpress.topia.commons.rpc.error.i18n;
+
+import io.bitexpress.topia.commons.rpc.error.ErrorCodeImpl;
 
 public class I18nErrorCodeImpl extends ErrorCodeImpl implements I18nErrorCode {
 
