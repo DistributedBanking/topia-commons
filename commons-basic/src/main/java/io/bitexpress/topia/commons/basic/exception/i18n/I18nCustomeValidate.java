@@ -12,10 +12,11 @@ public class I18nCustomeValidate {
     private I18nCustomeValidate() {
     }
 
-    public static void notNull(Object object, String errorCode, String message, I18nMessage i18nMessage) {
+    public static <T> T notNull(T object, String errorCode, String message, I18nMessage i18nMessage) {
         if (object == null) {
             fail(errorCode, message, i18nMessage);
         }
+        return object;
     }
 
     public static void isTrue(boolean condition, String errorCode, String message, I18nMessage i18nMessage) {
