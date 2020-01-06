@@ -2,8 +2,10 @@ package io.bitexpress.topia.commons.rpc.i18n;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+
+import java.io.Serializable;
 
 /**
  * <p></p >
@@ -12,8 +14,11 @@ import lombok.experimental.SuperBuilder;
  */
 @Data
 @SuperBuilder
-@ToString(callSuper = true)
-public class I18nMessage extends io.bitexpress.topia.commons.rpc.error.i18n.I18nMessage {
+@AllArgsConstructor
+@NoArgsConstructor
+public class I18nMessage {
 
+    private String key;
 
+    private Serializable[] params;
 }
