@@ -1,7 +1,7 @@
 package io.bitexpress.topia.commons.basic.exception.i18n;
 
 import io.bitexpress.topia.commons.basic.exception.ErrorCodeException;
-import io.bitexpress.topia.commons.rpc.error.i18n.I18nMessage;
+import io.bitexpress.topia.commons.rpc.i18n.I18nMessage;
 import lombok.Getter;
 
 /**

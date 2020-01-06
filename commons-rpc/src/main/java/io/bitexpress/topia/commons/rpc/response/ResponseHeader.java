@@ -2,9 +2,9 @@ package io.bitexpress.topia.commons.rpc.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.bitexpress.topia.commons.rpc.SystemCode;
+import io.bitexpress.topia.commons.rpc.i18n.I18nMessage;
 import lombok.Builder;
 import lombok.Data;
-import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -36,6 +36,11 @@ public class ResponseHeader implements Serializable {
      * 相关信息
      */
     private String message;
+
+    /**
+     * 国际化消息键
+     */
+    private I18nMessage i18nMessage;
 
     @JsonIgnore
     public String getDescription() {
