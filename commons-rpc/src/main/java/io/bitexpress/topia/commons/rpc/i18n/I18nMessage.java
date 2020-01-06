@@ -2,7 +2,7 @@ package io.bitexpress.topia.commons.rpc.i18n;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 /**
@@ -12,8 +12,7 @@ import lombok.experimental.SuperBuilder;
  */
 @Data
 @SuperBuilder
-@AllArgsConstructor
-@NoArgsConstructor
+@ToString(callSuper = true)
 public class I18nMessage extends io.bitexpress.topia.commons.rpc.error.i18n.I18nMessage {
 
 

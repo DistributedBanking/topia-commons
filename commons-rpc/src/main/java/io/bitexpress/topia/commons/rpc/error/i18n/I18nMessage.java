@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
 
@@ -14,6 +15,7 @@ import java.io.Serializable;
  * @deprecated use {@link io.bitexpress.topia.commons.rpc.i18n.I18nMessage}
  */
 @Data
+@SuperBuilder(builderMethodName = "ibuilder")
 @AllArgsConstructor
 @NoArgsConstructor
 @Deprecated
