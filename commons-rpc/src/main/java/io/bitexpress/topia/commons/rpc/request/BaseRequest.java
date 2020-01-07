@@ -21,7 +21,6 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class BaseRequest implements Serializable {
 
-    @NotNull
     @Valid
     private RequestHeader header;
 }
