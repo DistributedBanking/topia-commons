@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.Valid;
 import java.io.Serializable;
 
 /**
@@ -25,6 +26,7 @@ public class BodyRequest<T extends Serializable> extends BaseRequest {
     /**
      * 请求体
      */
+    @Valid
     private T body;
 
 }
