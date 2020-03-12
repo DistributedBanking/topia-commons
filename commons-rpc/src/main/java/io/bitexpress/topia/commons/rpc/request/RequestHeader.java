@@ -26,7 +26,7 @@ public class RequestHeader implements Serializable {
     private String sourceCode;
 
     /**
-     * 请求发起方
+     * 请求发起方.这个属性的用来让服务方识别请求者,并以此判断请求者是否有权限使用当前接口.这里的请求者是个抽象的概念,由服务方自行定义,请求方执行.当该字段空时,应该放行
      */
     @Valid
     private Issuer issuer;
