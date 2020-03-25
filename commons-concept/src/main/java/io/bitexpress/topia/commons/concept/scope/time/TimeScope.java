@@ -1,6 +1,8 @@
 package io.bitexpress.topia.commons.concept.scope.time;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 /**
@@ -11,6 +13,8 @@ import lombok.experimental.SuperBuilder;
  */
 @Data
 @SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
 public class TimeScope {
 
     private TimePoint startTime;
