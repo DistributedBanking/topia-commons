@@ -1,4 +1,4 @@
-package io.bitexpress.topia.commons.rpc.time;
+package io.bitexpress.topia.commons.concept.scope.time;
 
 import org.apache.commons.lang3.time.DateUtils;
 import org.junit.jupiter.api.Test;

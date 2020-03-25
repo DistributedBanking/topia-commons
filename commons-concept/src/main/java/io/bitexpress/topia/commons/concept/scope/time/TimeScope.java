@@ -1,4 +1,4 @@
-package io.bitexpress.topia.commons.rpc.time;
+package io.bitexpress.topia.commons.concept.scope.time;
 
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
