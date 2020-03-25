@@ -12,7 +12,7 @@ import java.util.Date;
 class TimePointTest {
     @Test
     void name() {
-        TimePoint build = TimePoint.builder().inclusive(true).time(new Date()).build();
+        TimePoint build = TimePoint.builder().inclusion(PointInclusion.INCLUSIVE).time(new Date()).build();
         System.out.println(build);
     }
 }

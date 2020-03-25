@@ -1,11 +1,11 @@
 package io.bitexpress.topia.commons.concept.scope.time;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 /**
@@ -19,12 +19,14 @@ import java.util.Date;
 @AllArgsConstructor
 public class TimePoint {
     /**
-     * 是否包含该点.默认是不包含
+     * 时间点包含特性
      */
-    private boolean inclusive;
+    @NotNull
+    private PointInclusion inclusion;
 
     /**
      * 时间点
      */
+    @NotNull
     private Date time;
 }
