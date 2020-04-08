@@ -2,6 +2,7 @@ package io.bitexpress.topia.commons.basic.competition;
 
 import java.util.Properties;
 
+import com.hazelcast.cp.IAtomicReference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.AfterClass;
@@ -11,8 +12,6 @@ import org.testng.annotations.Test;
 import com.hazelcast.config.Config;
 import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.core.IAtomicReference;
-import com.hazelcast.core.ILock;
 
 public class HazelcastLockTemplate2Test {
 	static {
@@ -55,12 +54,5 @@ public class HazelcastLockTemplate2Test {
 
 	}
 
-	@Test
-	public void key() {
-		ILock lock = hazelcastInstance.getLock("eee");
-		System.out.println(lock);
-		IAtomicReference<String> lockInfoRef = hazelcastInstance.getAtomicReference("eee");
-		System.out.println(lockInfoRef);
 
-	}
 }
