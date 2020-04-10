@@ -16,7 +16,7 @@ import java.io.Serializable;
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public class I18nMessage {
+public class I18nMessage implements Serializable {
 
     private String key;
 
