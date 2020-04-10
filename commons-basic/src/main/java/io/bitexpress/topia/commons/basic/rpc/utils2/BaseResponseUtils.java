@@ -37,29 +37,11 @@ public class BaseResponseUtils {
         return BaseResponse.builder().header(responseHeader).build();
     }
 
-    public static BaseResponse errorCodeExceptionResponse(ErrorCodeException e) {
-        if (e instanceof I18nErrorCodeException) {
-            return i18nErrorCodeExceptionResponse((I18nErrorCodeException) e);
-        }
-        logger.info("code:{},message:{}", e.getErrorCode(), e.getMessage());
-        ResponseHeader responseHeader = ResponseHeader.builder().systemCode(SystemCode.SUCCESS).businessCode(e.getErrorCode()).message(e.getMessage()).build();
-        return BaseResponse.builder().header(responseHeader).build();
-    }
-
-    public static BaseResponse i18nErrorCodeExceptionResponse(I18nErrorCodeException e) {
-        logger.info("code:{},message:{},i18nMessage:{}", e.getErrorCode(), e.getMessage(), e.getI18nMessage());
-        ResponseHeader responseHeader = ResponseHeader.builder().systemCode(SystemCode.SUCCESS).businessCode(e.getErrorCode()).message(e.getMessage()).i18nMessage(e.getI18nMessage()).build();
-        return BaseResponse.builder().header(responseHeader).build();
-    }
-
     public static BaseResponse exceptionBaseResponse(Throwable throwable) {
         return exceptionBaseResponse(throwable, false);
     }
 
     public static BaseResponse exceptionBaseResponse(Throwable throwable, boolean enableTrace) {
-        if (throwable instanceof ErrorCodeException) {
-            return errorCodeExceptionResponse((ErrorCodeException) throwable);
-        }
         return BaseResponse.builder().header(ResponseHeaderUtils.exceptionHeader(throwable, enableTrace)).build();
     }
 

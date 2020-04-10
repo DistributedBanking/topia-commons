@@ -1,6 +1,5 @@
 package io.bitexpress.topia.commons.basic.rpc.utils2;
 
-import io.bitexpress.topia.commons.basic.exception.ErrorCodeException;
 import io.bitexpress.topia.commons.rpc.BusinessCode;
 import io.bitexpress.topia.commons.rpc.SystemCode;
 import io.bitexpress.topia.commons.rpc.response.BodyResponse;
@@ -19,13 +18,9 @@ import java.io.Serializable;
 public class BodyResponseUtils {
     private static final Logger logger = LoggerFactory.getLogger(BodyResponseUtils.class);
 
-    public static <T extends Serializable> BodyResponse<T> codeBodyResponse(T result, SystemCode systemCode, String businessCode,
-                                                                            String message) {
+    public static <T extends Serializable> BodyResponse<T> codeBodyResponse(T result, SystemCode systemCode, String businessCode, String message) {
         ResponseHeader responseHeader = ResponseHeader.builder().systemCode(systemCode).businessCode(businessCode).message(message).build();
-        BodyResponse<T> rr = new BodyResponse<T>();
-        rr.setHeader(responseHeader);
-        rr.setBody(result);
-        return rr;
+        return BodyResponse.<T>bodyBuilder().header(responseHeader).body(result).build();
     }
 
     public static <T extends Serializable> BodyResponse<T> successBodyResponse(T result) {
@@ -36,25 +31,12 @@ public class BodyResponseUtils {
         return codeBodyResponse(null, SystemCode.FAILURE, null, message);
     }
 
-    public static <T extends Serializable> BodyResponse<T> errorCodeExceptionBodyResponse(ErrorCodeException e) {
-        logger.info("code:{},message:{}", e.getErrorCode(), e.getMessage());
-        ResponseHeader responseHeader = ResponseHeader.builder().systemCode(SystemCode.SUCCESS).businessCode(e.getErrorCode()).message(e.getMessage()).build();
-        BodyResponse<T> rr = new BodyResponse<T>();
-        rr.setHeader(responseHeader);
-        return rr;
-    }
-
     public static <T extends Serializable> BodyResponse<T> exceptionBodyResponse(Throwable throwable) {
         return exceptionBodyResponse(throwable, false);
     }
 
     public static <T extends Serializable> BodyResponse<T> exceptionBodyResponse(Throwable throwable, boolean enableTrace) {
-        if (throwable instanceof ErrorCodeException) {
-            return errorCodeExceptionBodyResponse((ErrorCodeException) throwable);
-        }
-        BodyResponse bodyResponse = new BodyResponse();
-        bodyResponse.setHeader(ResponseHeaderUtils.exceptionHeader(throwable, enableTrace));
-        return bodyResponse;
+        return BodyResponse.<T>bodyBuilder().header(ResponseHeaderUtils.exceptionHeader(throwable, enableTrace)).build();
     }
 
     public static <T extends Serializable> T parse(BodyResponse<T> resultResponse, String... silentBusinessCodes) {
