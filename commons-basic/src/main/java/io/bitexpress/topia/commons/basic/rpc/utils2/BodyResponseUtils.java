@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.Serializable;
+import java.util.function.Function;
 
 /**
  * 包含处理数据的响应组件
@@ -32,11 +33,11 @@ public class BodyResponseUtils {
     }
 
     public static <T extends Serializable> BodyResponse<T> exceptionBodyResponse(Throwable throwable) {
-        return exceptionBodyResponse(throwable, false);
+        return exceptionBodyResponse(throwable, false, null);
     }
 
-    public static <T extends Serializable> BodyResponse<T> exceptionBodyResponse(Throwable throwable, boolean enableTrace) {
-        return BodyResponse.<T>bodyBuilder().header(ResponseHeaderUtils.exceptionHeader(throwable, enableTrace)).build();
+    public static <T extends Serializable> BodyResponse<T> exceptionBodyResponse(Throwable throwable, boolean enableTrace, Function<Throwable, ResponseHeader.ResponseHeaderBuilder> customizedExceptionHeader) {
+        return BodyResponse.<T>bodyBuilder().header(ResponseHeaderUtils.exceptionHeader(throwable, enableTrace, customizedExceptionHeader)).build();
     }
 
     public static <T extends Serializable> T parse(BodyResponse<T> resultResponse, String... silentBusinessCodes) {

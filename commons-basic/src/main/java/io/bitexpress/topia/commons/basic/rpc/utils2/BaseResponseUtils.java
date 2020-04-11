@@ -11,6 +11,8 @@ import org.apache.commons.lang3.Validate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.function.Function;
+
 /**
  * 基础响应组件
  *
@@ -38,11 +40,11 @@ public class BaseResponseUtils {
     }
 
     public static BaseResponse exceptionBaseResponse(Throwable throwable) {
-        return exceptionBaseResponse(throwable, false);
+        return exceptionBaseResponse(throwable, false, null);
     }
 
-    public static BaseResponse exceptionBaseResponse(Throwable throwable, boolean enableTrace) {
-        return BaseResponse.builder().header(ResponseHeaderUtils.exceptionHeader(throwable, enableTrace)).build();
+    public static BaseResponse exceptionBaseResponse(Throwable throwable, boolean enableTrace, Function<Throwable, ResponseHeader.ResponseHeaderBuilder> customizedExceptionHeader) {
+        return BaseResponse.builder().header(ResponseHeaderUtils.exceptionHeader(throwable, enableTrace, customizedExceptionHeader)).build();
     }
 
     public static void parse(BaseResponse baseResponse, String... silentBusinessCodes) {
