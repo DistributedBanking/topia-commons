@@ -8,7 +8,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
  * 
- * @author shwh1
+ * @author godmonth
  *
  */
 public class DateScope {

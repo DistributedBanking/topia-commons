@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * lockKey never recycled
  *
- * @author shwh1
+ * @author godmonth
  */
 public class HazelcastLockTemplate2 implements LockTemplate2 {
 

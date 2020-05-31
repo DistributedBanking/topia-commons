@@ -10,7 +10,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 /**
  * 物权索引
  * 
- * @author shwh1
+ * @author godmonth
  *
  * @param <OWNER>
  * @param <OBJ>

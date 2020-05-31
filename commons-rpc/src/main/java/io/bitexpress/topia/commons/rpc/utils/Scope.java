@@ -4,7 +4,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * @deprecated use io.bitexpress.topia.commons.concept.scope.Scope
- * @author shwh1
+ * @author godmonth
  *
  * @param <T>
  */

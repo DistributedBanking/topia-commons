@@ -7,7 +7,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
- * @author shwh1
+ * @author godmonth
  * 
  */
 public class CodeAndName implements Comparable<CodeAndName> {

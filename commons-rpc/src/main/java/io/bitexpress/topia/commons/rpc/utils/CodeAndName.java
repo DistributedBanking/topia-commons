@@ -8,7 +8,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 /**
  * @deprecated use io.bitexpress.topia.commons.concept.CodeAndName
- * @author shwh1
+ * @author godmonth
  * 
  */
 @Deprecated
