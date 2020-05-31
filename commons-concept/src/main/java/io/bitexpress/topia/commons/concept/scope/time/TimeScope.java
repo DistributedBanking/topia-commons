@@ -1,5 +1,6 @@
 package io.bitexpress.topia.commons.concept.scope.time;
 
+import io.bitexpress.topia.commons.concept.scope.Scope;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,17 +18,17 @@ import javax.validation.Valid;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class TimeScope {
+public class TimeScope extends Scope<TimePoint> {
     /**
      * 开始时间点
      */
     @Valid
-    private TimePoint startTime;
+    private TimePoint from;
 
     /**
      * 结束时间点
      */
     @Valid
-    private TimePoint endTime;
+    private TimePoint to;
 
 }
