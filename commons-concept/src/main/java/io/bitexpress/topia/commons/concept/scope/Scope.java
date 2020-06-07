@@ -6,17 +6,18 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.Valid;
+import java.io.Serializable;
 
 @Data
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Scope<T> {
+public class Scope<T extends Serializable> implements Serializable {
 
-	@Valid
+    @Valid
     private T from;
 
-	@Valid
+    @Valid
     private T to;
 
 }
