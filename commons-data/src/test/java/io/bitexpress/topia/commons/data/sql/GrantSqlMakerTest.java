@@ -28,7 +28,7 @@ public class GrantSqlMakerTest {
 
 	@Test
 	public void grant() throws IOException {
-		String readFileToString = FileUtils.readFileToString(new File("src/test/resources/abc.sql"),
+		String readFileToString = FileUtils.readFileToString(new File("target/abc.sql"),
 				StandardCharsets.UTF_8);
 		List<String> grant = GrantSqlMaker.grant(Arrays.asList(StringUtils.split(readFileToString, "\r\n")));
 		String collect = grant.stream().collect(Collectors.joining("\r\n"));
