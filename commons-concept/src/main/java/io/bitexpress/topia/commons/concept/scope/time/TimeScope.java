@@ -4,6 +4,7 @@ import io.bitexpress.topia.commons.concept.scope.Scope;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 /**
@@ -16,5 +17,6 @@ import lombok.experimental.SuperBuilder;
 @Data
 @SuperBuilder
 @AllArgsConstructor
+@ToString(callSuper = true)
 public class TimeScope extends Scope<TimePoint> {
 }
