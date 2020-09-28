@@ -53,6 +53,17 @@ public class PageTransformer {
         return extractPageFromFullList(rawList, spp);
     }
 
+    /**
+     * use java.util.function.Function
+     *
+     * @param page
+     * @param function
+     * @param <IN>
+     * @param <OUT>
+     * @return
+     * @see java.util.function.Function
+     */
+    @Deprecated
     public static <IN, OUT> Pagination<OUT> transform(Pagination<IN> page, Function<IN, OUT> function) {
         if (page == null) {
             return null;
@@ -60,6 +71,16 @@ public class PageTransformer {
         Pagination<OUT> pagination = new Pagination<>();
         BeanCopy.beans(page, pagination).exclude("items").copy();
         pagination.setItems(Lists.transform(page.getItems(), function));
+        return pagination;
+    }
+
+    public static <IN, OUT> Pagination<OUT> transform(Pagination<IN> page, java.util.function.Function<IN, OUT> function) {
+        if (page == null) {
+            return null;
+        }
+        Pagination<OUT> pagination = new Pagination<>();
+        BeanCopy.beans(page, pagination).exclude("items").copy();
+        pagination.setItems(page.getItems().stream().map(function).collect(Collectors.toList()));
         return pagination;
     }
 
