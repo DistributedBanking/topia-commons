@@ -92,6 +92,14 @@ public class PageTransformer {
         return pagination;
     }
 
+    public static <IN, OUT> Page<OUT> transformPage(Page<IN> page, java.util.function.Function<IN, OUT> function) {
+        if (page == null) {
+            return null;
+        }
+        List<OUT> collect = page.getContent().stream().map(function).collect(Collectors.toList());
+        return new PageImpl<OUT>(collect, page.getPageable(), page.getTotalElements());
+    }
+
     public static <T> Pagination<T> transform(Page<T> page) {
         if (page == null) {
             return null;
