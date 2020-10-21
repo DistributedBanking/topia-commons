@@ -18,11 +18,13 @@ class TimeScopeTest {
 
         TimeScope timeScope = TimeScope.builder().from(startTime).to(endTime).build();
         System.out.println(timeScope);
+        TimeScope timeScope1 = new TimeScope();
+
     }
 
     @Test
     void name2() {
-        TimePoint startTime =new  TimePoint();
+        TimePoint startTime = new TimePoint();
         startTime.setInclusion(PointInclusion.INCLUSIVE);
         startTime.setTime(new Date());
         TimePoint endTime = startTime;
@@ -31,4 +33,6 @@ class TimeScopeTest {
         timeScope.setTo(endTime);
         System.out.println(timeScope);
     }
+
+
 }

@@ -15,9 +15,9 @@ import java.io.Serializable;
 public class Scope<T extends Serializable> implements Serializable {
 
     @Valid
-    private T from;
+    protected T from;
 
     @Valid
-    private T to;
+    protected T to;
 
 }
