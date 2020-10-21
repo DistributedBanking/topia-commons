@@ -17,7 +17,7 @@ import lombok.experimental.SuperBuilder;
 @Data
 @SuperBuilder
 @AllArgsConstructor
-@NoArgsConstructor
+//@NoArgsConstructor
 @ToString(callSuper = true)
 public class TimeScope extends Scope<TimePoint> {
 }
