@@ -26,7 +26,7 @@ public class GrantSqlMakerTest {
 
 	}
 
-	@Test
+	@Test(enabled = false)
 	public void grant() throws IOException {
 		String readFileToString = FileUtils.readFileToString(new File("target/abc.sql"),
 				StandardCharsets.UTF_8);
