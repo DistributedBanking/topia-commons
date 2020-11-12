@@ -37,7 +37,7 @@
     <distributionManagement>
         <snapshotRepository>
             <id>maven-snapshots</id>
-            <name>topay Internal Repository</name>
+            <name>payby Internal Repository</name>
             <url>http://nexus.test2pay.com/repository/maven-snapshots</url>
         </snapshotRepository>
     </distributionManagement>

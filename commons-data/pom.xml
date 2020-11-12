@@ -39,6 +39,22 @@
 
     <dependencies>
         <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>commons-rpc</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>commons-basic</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>commons-concept</artifactId>
+            <version>${project.version}</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <optional>true</optional>
@@ -84,16 +100,8 @@
             <groupId>com.godmonth</groupId>
             <artifactId>godmonth-commons</artifactId>
         </dependency>
-        <dependency>
-            <groupId>io.bitexpress.topia.commons</groupId>
-            <artifactId>commons-rpc</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.bitexpress.topia.commons</groupId>
-            <artifactId>commons-basic</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+
+
         <dependency>
             <groupId>javax.el</groupId>
             <artifactId>javax.el-api</artifactId>
