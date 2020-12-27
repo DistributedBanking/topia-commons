@@ -8,6 +8,11 @@ public class ErrorCodeValidate {
     private ErrorCodeValidate() {
     }
 
+    public static String notBlank(String object, ErrorCode errorCode, final Object... values) {
+        CustomeValidate.notNull(object, errorCode.getCode(), errorCode.getTemplate(), values);
+        return object;
+    }
+
     public static <T> T notNull(T object, ErrorCode errorCode, final Object... values) {
         CustomeValidate.notNull(object, errorCode.getCode(), errorCode.getTemplate(), values);
         return object;
