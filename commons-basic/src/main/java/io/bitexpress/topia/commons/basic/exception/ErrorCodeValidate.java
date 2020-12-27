@@ -9,7 +9,7 @@ public class ErrorCodeValidate {
     }
 
     public static String notBlank(String object, ErrorCode errorCode, final Object... values) {
-        CustomeValidate.notNull(object, errorCode.getCode(), errorCode.getTemplate(), values);
+        CustomeValidate.notBlank(object, errorCode.getCode(), errorCode.getTemplate(), values);
         return object;
     }
 
