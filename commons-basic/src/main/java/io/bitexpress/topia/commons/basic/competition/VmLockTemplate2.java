@@ -18,10 +18,8 @@ public class VmLockTemplate2 implements LockTemplate2 {
 	/**
 	 * 分布式锁,相同的或者不同场景共用一个lockKey,相同的场景执行有冷却时间,不同的场景无冷却时间
 	 * 
-	 * @param lockKey.
+	 * @param lockKey
 	 *            既被用作锁名，也被用作锁信息名
-	 * @param scenario
-	 *            场景
 	 * @param lockCallback
 	 * @return
 	 */
