@@ -7,7 +7,7 @@
     <parent>
         <groupId>io.bitexpress.topia.commons</groupId>
         <artifactId>commons-platform-root</artifactId>
-        <version>0.7.4-SNAPSHOT</version>
+        <version>7.4-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <name>commons data</name>
@@ -91,15 +91,15 @@
             <artifactId>commons-collections4</artifactId>
             <optional>true</optional>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>net.sf.dozer</groupId>-->
-<!--            <artifactId>dozer</artifactId>-->
-<!--        </dependency>-->
         <dependency>
-            <groupId>com.github.dozermapper</groupId>
-            <artifactId>dozer-core</artifactId>
-            <version>6.0.0</version>
+            <groupId>net.sf.dozer</groupId>
+            <artifactId>dozer</artifactId>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.github.dozermapper</groupId>-->
+<!--            <artifactId>dozer-core</artifactId>-->
+<!--            <version>6.0.0</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
