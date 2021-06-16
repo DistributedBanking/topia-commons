@@ -20,10 +20,13 @@ public class ReplenishmentRange {
 
     public static final ReplenishmentRange DEFAULT_INSTANCE = ReplenishmentRange.builder().startPeriod(DEFAULT_START_PERIOD).endPeriod(DEFAULT_END_PERIOD).build();
 
+    @Builder.Default
     @Setter
-    private Period startPeriod;
+    private Period startPeriod = DEFAULT_START_PERIOD;
+
+    @Builder.Default
     @Setter
-    private Period endPeriod;
+    private Period endPeriod = DEFAULT_END_PERIOD;
 
     /**
      * 以后会删除内部赋值
