@@ -1,6 +1,7 @@
 package io.bitexpress.topia.commons.basic.codec;
 
-import org.testng.annotations.Test;
+
+import org.junit.jupiter.api.Test;
 
 public class HexBracketToStringTest {
 

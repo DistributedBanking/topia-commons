@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.lang3.StringUtils;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 
 public class CodecTest {
 	@Test

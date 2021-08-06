@@ -11,9 +11,9 @@ import java.util.stream.Collectors;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.testng.annotations.Test;
 
 import io.bitexpress.topia.commons.data.sql.MysqlGrantSqlMaker.Param;
+import org.junit.jupiter.api.Test;
 
 public class MysqlGrantSqlMakerTest {
 	@Test

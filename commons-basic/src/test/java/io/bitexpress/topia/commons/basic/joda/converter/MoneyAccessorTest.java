@@ -2,9 +2,9 @@ package io.bitexpress.topia.commons.basic.joda.converter;
 
 import java.math.BigDecimal;
 
-import org.testng.annotations.Test;
 
 import jodd.bean.BeanUtil;
+import org.junit.jupiter.api.Test;
 
 public class MoneyAccessorTest {
 

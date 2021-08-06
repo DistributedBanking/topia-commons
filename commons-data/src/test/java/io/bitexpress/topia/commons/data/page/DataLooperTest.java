@@ -3,12 +3,12 @@ package io.bitexpress.topia.commons.data.page;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
-import org.testng.annotations.Test;
 
 public class DataLooperTest {
 	@Test
