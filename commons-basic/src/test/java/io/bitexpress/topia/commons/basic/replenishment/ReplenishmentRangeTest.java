@@ -26,7 +26,11 @@ public class ReplenishmentRangeTest {
     public void builder() {
         ReplenishmentRange range = ReplenishmentRange.builder().build();
         System.out.println(range);
-        range = ReplenishmentRange.builder().endPeriod(Period.hours(5)).startPeriod(Period.weeks(1)).build();
+        range = ReplenishmentRange.builder().endPeriod(Period.hours(9)).startPeriod(Period.weeks(3)).build();
+        System.out.println(range);
+        range = ReplenishmentRange.builder().endPeriod(Period.hours(9)).build();
+        System.out.println(range);
+        range = ReplenishmentRange.builder().startPeriod(Period.weeks(3)).build();
         System.out.println(range);
     }
 }
