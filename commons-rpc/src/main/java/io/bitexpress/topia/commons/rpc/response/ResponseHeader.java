@@ -18,6 +18,11 @@ import java.io.Serializable;
 @Builder
 public class ResponseHeader implements Serializable {
     /**
+     * 用作非阻塞式通讯的消息id.可空,值等于对等的请求id
+     */
+    private String messageId;
+
+    /**
      * 系统代码
      */
     @NotNull

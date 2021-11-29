@@ -21,6 +21,11 @@ import java.util.Locale;
 public class RequestHeader implements Serializable {
     public static final RequestHeader EMPTY_HEADER = new RequestHeader();
     /**
+     * 用作非阻塞式通讯的消息id.可空
+     */
+    private String messageId;
+
+    /**
      * 来源系统代码
      */
     private String sourceCode;
