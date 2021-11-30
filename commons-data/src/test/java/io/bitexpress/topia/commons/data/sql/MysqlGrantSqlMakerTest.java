@@ -31,7 +31,7 @@ public class MysqlGrantSqlMakerTest {
 				StandardCharsets.UTF_8);
 		List<String> grant = MysqlGrantSqlMaker.grant(Arrays.asList(StringUtils.split(readFileToString, "\r\n")));
 		String collect = grant.stream().collect(Collectors.joining("\r\n"));
-		FileUtils.writeStringToFile(new File("target/abc.grant.sql"), collect, StandardCharsets.UTF_8);
+		FileUtils.writeStringToFile(new File("target/mysql.grant.sql"), collect, StandardCharsets.UTF_8);
 
 	}
 
