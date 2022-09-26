@@ -1,19 +1,18 @@
 package io.bitexpress.topia.commons.rpc.error;
 
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
-@Getter
-@ToString
+@Data
 public class ErrorCodeImpl implements ErrorCode {
 
     private String code;
+
     private String Template;
 
 }
