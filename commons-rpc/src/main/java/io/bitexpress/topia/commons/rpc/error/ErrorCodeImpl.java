@@ -13,6 +13,6 @@ public class ErrorCodeImpl implements ErrorCode {
 
     private String code;
 
-    private String Template;
+    private String template;
 
 }
