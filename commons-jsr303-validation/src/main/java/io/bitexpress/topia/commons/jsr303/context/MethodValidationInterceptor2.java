@@ -1,6 +1,5 @@
 package io.bitexpress.topia.commons.jsr303.context;
 
-import io.bitexpress.topia.commons.rpc.BaseResponse;
 import io.bitexpress.topia.commons.rpc.SystemCode;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;

@@ -1,7 +1,6 @@
 package io.bitexpress.topia.commons.basic.rpc.utils2;
 
 import io.bitexpress.topia.commons.rpc.BusinessCode;
-import io.bitexpress.topia.commons.rpc.MapResultResponse;
 import io.bitexpress.topia.commons.rpc.SystemCode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

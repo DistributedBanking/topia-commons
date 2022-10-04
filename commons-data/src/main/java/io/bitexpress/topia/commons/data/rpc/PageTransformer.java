@@ -40,39 +40,8 @@ public class PageTransformer {
         return pagination;
     }
 
-    /**
-     * 不合适的名字.
-     *
-     * @param rawList
-     * @param spp
-     * @return
-     * @deprecated use extractPageFromFullList
-     */
-    @Deprecated
-    public static <T> Pagination<T> list2Page(List<T> rawList, SortPageParam spp) {
-        return extractPageFromFullList(rawList, spp);
-    }
 
-    /**
-     * use java.util.function.Function
-     *
-     * @param page
-     * @param function
-     * @param <IN>
-     * @param <OUT>
-     * @return
-     * @see java.util.function.Function
-     */
-    @Deprecated
-    public static <IN, OUT> Pagination<OUT> transform(Pagination<IN> page, Function<IN, OUT> function) {
-        if (page == null) {
-            return null;
-        }
-        Pagination<OUT> pagination = new Pagination<>();
-        BeanCopy.beans(page, pagination).exclude("items").copy();
-        pagination.setItems(Lists.transform(page.getItems(), function));
-        return pagination;
-    }
+
 
     public static <IN, OUT> Pagination<OUT> transform(Pagination<IN> page, java.util.function.Function<IN, OUT> function) {
         if (page == null) {
@@ -84,19 +53,6 @@ public class PageTransformer {
         return pagination;
     }
 
-    @Deprecated
-    public static <IN, OUT> Pagination<OUT> transform(Page<IN> page, Function<IN, OUT> function) {
-        if (page == null) {
-            return null;
-        }
-        Pagination<OUT> pagination = new Pagination<OUT>();
-        pagination.setTotalElements(page.getTotalElements());
-        pagination.setTotalPages(page.getTotalPages());
-        pagination.setItems(Lists.transform(page.getContent(), function));
-        pagination.setSortPageParam(
-                new SortPageParam(page.getNumber(), page.getSize(), SortUtils.convert(page.getSort())));
-        return pagination;
-    }
 
     public static <IN, OUT> Pagination<OUT> transform(Page<IN> page, java.util.function.Function<IN, OUT> function) {
         if (page == null) {

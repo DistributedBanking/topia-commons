@@ -6,7 +6,6 @@ import org.slf4j.LoggerFactory;
 
 import io.bitexpress.topia.commons.basic.exception.ErrorCodeException;
 import io.bitexpress.topia.commons.rpc.BusinessCode;
-import io.bitexpress.topia.commons.rpc.ResultResponse;
 import io.bitexpress.topia.commons.rpc.SystemCode;
 
 /**

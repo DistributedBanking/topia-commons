@@ -1,7 +1,6 @@
 package io.bitexpress.topia.commons.basic.rpc.utils;
 
 import io.bitexpress.topia.commons.basic.exception.ErrorCodeException;
-import io.bitexpress.topia.commons.rpc.BaseResponse;
 import io.bitexpress.topia.commons.rpc.BusinessCode;
 import io.bitexpress.topia.commons.rpc.SystemCode;
 import org.junit.jupiter.api.Assertions;
