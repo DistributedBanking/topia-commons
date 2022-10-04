@@ -64,7 +64,7 @@ public class PageTransformer {
      * @see java.util.function.Function
      */
     @Deprecated
-    public static <IN, OUT> Pagination<OUT> transform(Pagination<IN> page, Function<IN, OUT> function) {
+    public static <IN, OUT> Pagination<OUT> transform1(Pagination<IN> page, Function<IN, OUT> function) {
         if (page == null) {
             return null;
         }
