@@ -7,6 +7,7 @@ import io.bitexpress.topia.commons.rpc.SystemCode;
 import io.bitexpress.topia.commons.rpc.response.BaseResponse;
 import io.bitexpress.topia.commons.rpc.response.ResponseHeader;
 import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,7 +50,7 @@ public class BaseResponseUtils {
 
     public static void parse(BaseResponse baseResponse, String... silentBusinessCodes) {
         ResponseHeader header = baseResponse.getHeader();
-        Validate.validState(header.getSystemCode() == SystemCode.SUCCESS, header.getMessage());
+        Validate.validState(header.getSystemCode() == SystemCode.SUCCESS, StringUtils.defaultString(header.getMessage()));
         String[] successCodeArray = ArrayUtils.add(silentBusinessCodes, BusinessCode.SUCCESS.name());
         if (!ArrayUtils.contains(successCodeArray, header.getBusinessCode())) {
             if (header.getI18nMessage() != null) {
