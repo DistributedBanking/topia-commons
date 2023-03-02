@@ -50,12 +50,12 @@ public class ResponseHeaderUtils {
 
     private static ResponseHeader.ResponseHeaderBuilder i18nErrorCodeExceptionResponseHeaderBuilder(I18nErrorCodeException e) {
         logger.trace("code:{},message:{},i18nMessage:{}", e.getErrorCode(), e.getMessage(), e.getI18nMessage());
-        return ResponseHeader.builder().systemCode(SystemCode.SUCCESS).businessCode(e.getErrorCode()).message(e.getMessage()).i18nMessage(e.getI18nMessage());
+        return ResponseHeader.builder().systemCode(SystemCode.SUCCESS).businessCode(e.getErrorCode()).message(e.getMessage()).i18nMessage(e.getI18nMessage()).permanentRejection(e.isPermanentRejection());
     }
 
     private static ResponseHeader.ResponseHeaderBuilder errorCodeExceptionResponseHeaderBuilder(ErrorCodeException e) {
         logger.trace("code:{},message:{}", e.getErrorCode(), e.getMessage());
-        return ResponseHeader.builder().systemCode(SystemCode.SUCCESS).businessCode(e.getErrorCode()).message(e.getMessage());
+        return ResponseHeader.builder().systemCode(SystemCode.SUCCESS).businessCode(e.getErrorCode()).message(e.getMessage()).permanentRejection(e.isPermanentRejection());
     }
 
     private static ResponseHeader.ResponseHeaderBuilder normalExceptionResponseHeaderBuilder(Throwable e) {

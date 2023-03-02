@@ -1,10 +1,14 @@
 package io.bitexpress.topia.commons.basic.exception;
 
+import lombok.Getter;
+
 public class ErrorCodeException extends RuntimeException {
+    @Getter
     private String errorCode;
     /**
      * 永久拒绝.表示该请求(用requestIdentity标识)被永久拒绝
      */
+    @Getter
     private boolean permanentRejection;
 
     public ErrorCodeException(String errorCode, String message) {
@@ -18,8 +22,5 @@ public class ErrorCodeException extends RuntimeException {
         this.permanentRejection = permanentRejection;
     }
 
-    public String getErrorCode() {
-        return errorCode;
-    }
 
 }
