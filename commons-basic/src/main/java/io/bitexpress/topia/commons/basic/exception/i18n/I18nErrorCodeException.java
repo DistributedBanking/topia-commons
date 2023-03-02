@@ -15,7 +15,12 @@ public class I18nErrorCodeException extends ErrorCodeException {
 
     public I18nErrorCodeException(String errorCode, String message, I18nMessage i18nMessage) {
         super(errorCode, message);
-        this.i18nMessage=i18nMessage;
+        this.i18nMessage = i18nMessage;
     }
 
+    public I18nErrorCodeException(String errorCode, String message, I18nMessage i18nMessage, boolean permanentRejection) {
+        super(errorCode, message, permanentRejection);
+        this.i18nMessage = i18nMessage;
+
+    }
 }
