@@ -47,6 +47,11 @@ public class ResponseHeader implements Serializable {
      */
     private I18nMessage i18nMessage;
 
+    /**
+     * 永久拒绝.表示该请求(用requestIdentity标识)被永久拒绝
+     */
+    private boolean permanentRejection;
+
     @JsonIgnore
     public String getDescription() {
         return String.format("systemCode:%s,businessCode:%s, message:%s", systemCode, businessCode, message);
