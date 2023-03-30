@@ -54,4 +54,13 @@ public class I18nErrorCodeValidate {
     public static <T> T fail(I18nErrorCode errorCode, I18nMessage i18nMessage) {
         return I18nCustomeValidate.fail(errorCode.getCode(), errorCode.getTemplate(), i18nMessage);
     }
+
+    public static I18nErrorCodeException createException(I18nErrorCode errorCode, Serializable... params) {
+        I18nMessage i18nMessage = I18nMessage.builder().key(errorCode.getMessageKey()).params(params).build();
+        return createException(errorCode, i18nMessage);
+    }
+
+    public static I18nErrorCodeException createException(I18nErrorCode errorCode, I18nMessage i18nMessage) {
+        throw new I18nErrorCodeException(errorCode.getCode(), errorCode.getMessageKey(), i18nMessage);
+    }
 }
