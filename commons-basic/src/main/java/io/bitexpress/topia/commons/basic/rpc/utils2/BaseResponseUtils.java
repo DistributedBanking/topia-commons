@@ -54,9 +54,9 @@ public class BaseResponseUtils {
         String[] successCodeArray = ArrayUtils.add(silentBusinessCodes, BusinessCode.SUCCESS.name());
         if (!ArrayUtils.contains(successCodeArray, header.getBusinessCode())) {
             if (header.getI18nMessage() != null) {
-                throw new I18nErrorCodeException(header.getBusinessCode(), header.getMessage(), header.getI18nMessage());
+                throw new I18nErrorCodeException(header.getBusinessCode(), header.getMessage(), header.getI18nMessage(), header.isPermanentRejection());
             } else {
-                throw new ErrorCodeException(header.getBusinessCode(), header.getMessage());
+                throw new ErrorCodeException(header.getBusinessCode(), header.getMessage(), header.isPermanentRejection());
             }
 
         }
