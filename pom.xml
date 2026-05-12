@@ -16,6 +16,7 @@
         <lombok.version>1.18.46</lombok.version>
         <dubbo.version>3.3.6</dubbo.version>
         <jakarta.el-api.version>6.0.1</jakarta.el-api.version>
+        <jakarta.validation-api.version>3.0.2</jakarta.validation-api.version>
     </properties>
 
     <packaging>pom</packaging>
@@ -44,9 +45,9 @@
     </scm>
     <distributionManagement>
         <snapshotRepository>
-            <id>maven-snapshots</id>
-            <name>payby Internal Repository</name>
-            <url>http://nexus.test2pay.com/repository/maven-snapshots</url>
+            <id>bonus-maven-snapshots</id>
+            <url>https://sdk.platon.network/nexus/repository/maven-snapshots</url>
+            <uniqueVersion>false</uniqueVersion>
         </snapshotRepository>
     </distributionManagement>
     <modules>
@@ -184,7 +185,7 @@
             <dependency>
                 <groupId>jakarta.validation</groupId>
                 <artifactId>jakarta.validation-api</artifactId>
-                <version>3.1.1</version>
+                <version>${jakarta.validation-api.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.joda</groupId>
@@ -284,6 +285,11 @@
         </dependencies>
     </dependencyManagement>
     <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
