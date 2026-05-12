@@ -3,8 +3,8 @@ package io.bitexpress.topia.commons.data.keygenerator;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -2,8 +2,8 @@ package io.bitexpress.topia.commons.data.model;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
+import jakarta.persistence.Column;
+import jakarta.persistence.MappedSuperclass;
 
 import org.hibernate.annotations.CreationTimestamp;
 

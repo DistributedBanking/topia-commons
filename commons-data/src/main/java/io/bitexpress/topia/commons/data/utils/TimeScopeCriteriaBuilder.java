@@ -3,9 +3,9 @@ package io.bitexpress.topia.commons.data.utils;
 import io.bitexpress.topia.commons.concept.scope.time.TimePoint;
 import io.bitexpress.topia.commons.concept.scope.time.TimeScope;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.Path;
-import javax.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.Path;
+import jakarta.persistence.criteria.Predicate;
 import java.util.ArrayList;
 import java.util.List;
 

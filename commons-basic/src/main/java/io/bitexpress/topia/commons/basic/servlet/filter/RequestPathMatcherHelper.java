@@ -3,8 +3,8 @@ package io.bitexpress.topia.commons.basic.servlet.filter;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.web.util.UrlPathHelper;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.constraints.NotNull;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -3,7 +3,7 @@ package io.bitexpress.topia.commons.rpc.snapshot;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 

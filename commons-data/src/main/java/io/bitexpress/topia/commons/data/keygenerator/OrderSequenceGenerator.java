@@ -9,8 +9,7 @@ import org.apache.commons.lang3.time.FastDateFormat;
 import org.hibernate.HibernateException;
 import org.hibernate.MappingException;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.type.Type;
+import org.hibernate.generator.GeneratorCreationContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,8 +25,8 @@ public class OrderSequenceGenerator extends StringSequenceGenerator {
 	private int sequenceLength = DEFAULT_SEQUENCE_LENGTH;
 
 	@Override
-	public void configure(Type type, Properties params, ServiceRegistry serviceRegistry) throws MappingException {
-		super.configure(type, params, serviceRegistry);
+	public void configure(GeneratorCreationContext creationContext, Properties params) throws MappingException {
+		super.configure(creationContext, params);
 		prefix = params.getProperty("prefix");
 		date = Boolean.valueOf(params.getProperty("date", "true"));
 	}

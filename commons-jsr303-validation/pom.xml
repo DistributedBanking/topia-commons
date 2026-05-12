@@ -28,7 +28,7 @@
                     <links>
                         <link>http://commons.apache.org/proper/commons-lang/javadocs/api-release</link>
                         <link>http://docs.oracle.com/javaee/6/api</link>
-                        <link>http://docs.jboss.org/hibernate/validator/5.1/api/</link>
+                        <link>https://docs.hibernate.org/validator/9.1/api/</link>
                     </links>
                     <javaApiLinks>
                         <property>
@@ -52,8 +52,13 @@
             <artifactId>commons-lang3</artifactId>
         </dependency>
         <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>

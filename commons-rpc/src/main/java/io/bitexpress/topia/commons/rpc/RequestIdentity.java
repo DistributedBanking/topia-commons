@@ -2,7 +2,7 @@ package io.bitexpress.topia.commons.rpc;
 
 import java.io.Serializable;
 
-import javax.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotBlank;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;

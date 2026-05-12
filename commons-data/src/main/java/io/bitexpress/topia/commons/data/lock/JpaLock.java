@@ -1,8 +1,8 @@
 package io.bitexpress.topia.commons.data.lock;
 
-import javax.persistence.EntityManager;
-import javax.persistence.LockModeType;
-import javax.persistence.PersistenceContext;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.LockModeType;
+import jakarta.persistence.PersistenceContext;
 
 import org.apache.commons.lang3.Validate;
 

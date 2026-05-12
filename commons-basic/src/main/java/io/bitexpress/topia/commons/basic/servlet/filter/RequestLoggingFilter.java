@@ -3,7 +3,7 @@ package io.bitexpress.topia.commons.basic.servlet.filter;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.web.filter.CommonsRequestLoggingFilter;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 public class RequestLoggingFilter extends CommonsRequestLoggingFilter {
 

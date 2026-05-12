@@ -26,8 +26,8 @@
                     <charset>utf-8</charset>
                     <javaApiLinks>
                         <property>
-                            <name>api_1.8</name>
-                            <value>https://docs.oracle.com/javase/8/docs/api/</value>
+                            <name>api_25</name>
+                            <value>https://docs.oracle.com/en/java/javase/25/docs/api/</value>
                         </property>
                     </javaApiLinks>
                     <show>private</show>
@@ -68,7 +68,7 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>org.hibernate</groupId>
+            <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-core</artifactId>
         </dependency>
         <dependency>
@@ -103,7 +103,6 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
-            <version>1.7.30</version>
             <optional>true</optional>
         </dependency>
         <dependency>
@@ -113,8 +112,8 @@
 
 
         <dependency>
-            <groupId>javax.el</groupId>
-            <artifactId>javax.el-api</artifactId>
+            <groupId>jakarta.el</groupId>
+            <artifactId>jakarta.el-api</artifactId>
             <optional>true</optional>
         </dependency>
         <dependency>
