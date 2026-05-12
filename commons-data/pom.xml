@@ -13,29 +13,6 @@
     <name>commons data</name>
     <description>commons data</description>
 
-
-    <reporting>
-        <plugins>
-            <plugin>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <configuration>
-                    <detectLinks>false</detectLinks>
-                    <docfilessubdirs>true</docfilessubdirs>
-                    <encoding>utf-8</encoding>
-                    <docencoding>utf-8</docencoding>
-                    <charset>utf-8</charset>
-                    <javaApiLinks>
-                        <property>
-                            <name>api_25</name>
-                            <value>https://docs.oracle.com/en/java/javase/25/docs/api/</value>
-                        </property>
-                    </javaApiLinks>
-                    <show>private</show>
-                </configuration>
-            </plugin>
-        </plugins>
-    </reporting>
-
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
