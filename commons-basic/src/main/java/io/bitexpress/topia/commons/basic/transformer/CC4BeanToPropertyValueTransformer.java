@@ -5,13 +5,12 @@ import java.lang.reflect.InvocationTargetException;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.collections4.Transformer;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class CC4BeanToPropertyValueTransformer<I, O> implements
 		Transformer<I, O> {
-	/** For logging. */
-	private final Log log = LogFactory.getLog(this.getClass());
 
 	/**
 	 * The name of the property that will be used in the transformation of the

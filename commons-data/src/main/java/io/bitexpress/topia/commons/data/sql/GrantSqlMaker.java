@@ -14,12 +14,11 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ContextedRuntimeException;
 import org.apache.commons.text.StringSubstitutor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class GrantSqlMaker {
-
-	private static final Logger logger = LoggerFactory.getLogger(GrantSqlMaker.class);
 
 	private static String sequencePattern = "create sequence ";
 	private static String tablePattern = "create table ";
@@ -47,7 +46,7 @@ public class GrantSqlMaker {
 		if (StringUtils.isNotBlank(StringUtils.substringAfter(sql, sequencePattern))) {
 			String fullNameObject = StringUtils.substringBefore(StringUtils.substringAfter(sql, sequencePattern), ";")
 					.trim();
-			logger.trace("fullNameObject:{}", fullNameObject);
+			log.trace("fullNameObject:{}", fullNameObject);
 			Param param = new Param();
 			param.schema = StringUtils.substringBefore(fullNameObject, ".");
 			param.objectName = StringUtils.substringAfter(fullNameObject, ".");
@@ -56,7 +55,7 @@ public class GrantSqlMaker {
 			return param;
 		} else if (StringUtils.isNotBlank(StringUtils.substringAfter(sql, tablePattern))) {
 			String fullNameObject = StringUtils.substringAfter(sql, tablePattern).trim();
-			logger.trace("fullNameObject:{}", fullNameObject);
+			log.trace("fullNameObject:{}", fullNameObject);
 			Param param = new Param();
 			param.schema = StringUtils.substringBefore(fullNameObject, ".");
 			param.objectName = StringUtils.substringAfter(fullNameObject, ".");

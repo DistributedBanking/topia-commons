@@ -5,12 +5,12 @@ import java.util.Map;
 import org.apache.commons.lang3.tuple.Pair;
 import org.joda.time.DateTime;
 import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class VmLockTemplateTest {
 
-    private static final Logger logger = LoggerFactory.getLogger(VmLockTemplateTest.class);
     private VmLockTemplate lockTemplate = new VmLockTemplate();
 
     @Test
@@ -20,7 +20,7 @@ public class VmLockTemplateTest {
 
             @Override
             public Void locked() {
-                logger.info("ff");
+                log.info("ff");
                 return null;
             }
         };

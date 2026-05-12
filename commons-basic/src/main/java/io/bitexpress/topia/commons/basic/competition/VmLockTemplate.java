@@ -13,12 +13,11 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.joda.time.DateTime;
 import org.joda.time.Interval;
 import org.joda.time.Period;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class VmLockTemplate implements LockTemplate {
-
-	private static final Logger logger = LoggerFactory.getLogger(VmLockTemplate.class);
 
 	public static final Period DEFAULT_COOLING_PERIOD = Period.seconds(30);
 
@@ -48,19 +47,19 @@ public class VmLockTemplate implements LockTemplate {
 		try {
 			boolean tryLock = lock.tryLock(0, TimeUnit.SECONDS);
 			if (!tryLock) {
-				logger.debug("lock failure,skip this turn.");
+				log.debug("lock failure,skip this turn.");
 				return null;
 			}
 			lockInfo = lockInfoMap.get(lockKey);
 			if (lockInfo != null && Objects.equals(lockInfo.getRight(), scenario)) {
 				DateTime localTime = new DateTime();
 				if (lockInfo.getLeft().isAfter(localTime)) {
-					logger.debug("lock time:{} is later than local time:{}.", lockInfo.getLeft(), localTime);
+					log.debug("lock time:{} is later than local time:{}.", lockInfo.getLeft(), localTime);
 					return null;
 				}
 				Interval interval = new Interval(lockInfo.getLeft(), localTime);
 				if (interval.toDuration().compareTo(coolingPeriod.toStandardDuration()) <= 0) {
-					logger.debug("cooling:{}", interval);
+					log.debug("cooling:{}", interval);
 					return null;
 				}
 			}

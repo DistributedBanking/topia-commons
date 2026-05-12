@@ -1,8 +1,6 @@
 package io.bitexpress.topia.commons.basic.servlet.filter;
 
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
@@ -16,9 +14,10 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
-public class ResponseLoggingFliter implements Filter {
+import lombok.extern.slf4j.Slf4j;
 
-	private static final Logger logger = LoggerFactory.getLogger(ResponseLoggingFliter.class);
+@Slf4j
+public class ResponseLoggingFliter implements Filter {
 
 	private RequestPathMatcherHelper excludeLogPathMatcherHelper;
 	private Integer maxPayloadLength;
@@ -36,9 +35,9 @@ public class ResponseLoggingFliter implements Filter {
 				if (maxPayloadLength != null) {
 					string = StringUtils.abbreviate(string, maxPayloadLength);
 				}
-				logger.trace("response body:{}", string);
+				log.trace("response body:{}", string);
 			} catch (Exception e) {
-				logger.error("", e);
+				log.error("", e);
 			}
 		} else {
 			chain.doFilter(request, response);
@@ -46,7 +45,7 @@ public class ResponseLoggingFliter implements Filter {
 	}
 
 	protected boolean shouldLog(HttpServletRequest request) {
-		return logger.isTraceEnabled() && !excludeLogPathMatcherHelper.match(request);
+		return log.isTraceEnabled() && !excludeLogPathMatcherHelper.match(request);
 	}
 
 	@Override

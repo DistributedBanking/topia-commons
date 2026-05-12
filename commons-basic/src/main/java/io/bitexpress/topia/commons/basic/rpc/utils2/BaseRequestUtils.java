@@ -3,8 +3,6 @@ package io.bitexpress.topia.commons.basic.rpc.utils2;
 import io.bitexpress.topia.commons.rpc.request.BaseRequest;
 import io.bitexpress.topia.commons.rpc.request.BodyRequest;
 import io.bitexpress.topia.commons.rpc.request.ListBodyRequest;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.Serializable;
 import java.util.List;
@@ -15,8 +13,6 @@ import java.util.List;
  * @author shenyue
  */
 public class BaseRequestUtils {
-
-    private static final Logger logger = LoggerFactory.getLogger(BaseRequestUtils.class);
 
     private BaseRequestUtils() {
     }

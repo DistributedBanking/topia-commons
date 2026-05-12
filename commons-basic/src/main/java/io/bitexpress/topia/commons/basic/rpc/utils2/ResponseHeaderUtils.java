@@ -5,19 +5,18 @@ import io.bitexpress.topia.commons.basic.exception.i18n.I18nErrorCodeException;
 import io.bitexpress.topia.commons.rpc.SystemCode;
 import io.bitexpress.topia.commons.rpc.response.ResponseHeader;
 import org.apache.commons.lang3.exception.ExceptionUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.function.Function;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * <p></p >
  *
  * @author shenyue
  */
+@Slf4j
 public class ResponseHeaderUtils {
-    private static final Logger logger = LoggerFactory.getLogger(ResponseHeaderUtils.class);
-
     private ResponseHeaderUtils() {
     }
 
@@ -49,17 +48,17 @@ public class ResponseHeaderUtils {
 
 
     private static ResponseHeader.ResponseHeaderBuilder i18nErrorCodeExceptionResponseHeaderBuilder(I18nErrorCodeException e) {
-        logger.trace("code:{},message:{},i18nMessage:{}", e.getErrorCode(), e.getMessage(), e.getI18nMessage());
+        log.trace("code:{},message:{},i18nMessage:{}", e.getErrorCode(), e.getMessage(), e.getI18nMessage());
         return ResponseHeader.builder().systemCode(SystemCode.SUCCESS).businessCode(e.getErrorCode()).message(e.getMessage()).i18nMessage(e.getI18nMessage());
     }
 
     private static ResponseHeader.ResponseHeaderBuilder errorCodeExceptionResponseHeaderBuilder(ErrorCodeException e) {
-        logger.trace("code:{},message:{}", e.getErrorCode(), e.getMessage());
+        log.trace("code:{},message:{}", e.getErrorCode(), e.getMessage());
         return ResponseHeader.builder().systemCode(SystemCode.SUCCESS).businessCode(e.getErrorCode()).message(e.getMessage());
     }
 
     private static ResponseHeader.ResponseHeaderBuilder normalExceptionResponseHeaderBuilder(Throwable e) {
-        logger.trace("message:{}", e.getMessage());
+        log.trace("message:{}", e.getMessage());
         return ResponseHeader.builder().systemCode(SystemCode.FAILURE).message(e.getMessage());
     }
 }

@@ -4,8 +4,6 @@ import io.bitexpress.topia.commons.rpc.BusinessCode;
 import io.bitexpress.topia.commons.rpc.SystemCode;
 import io.bitexpress.topia.commons.rpc.response.ListBodyResponse;
 import io.bitexpress.topia.commons.rpc.response.ResponseHeader;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.Serializable;
 import java.util.List;
@@ -17,7 +15,6 @@ import java.util.function.Function;
  * @author shenyue
  */
 public class ListBodyResponseUtils<T> {
-    private static final Logger logger = LoggerFactory.getLogger(ListBodyResponseUtils.class);
 
     public static <T extends Serializable> ListBodyResponse<T> codeListResultResponse(List<T> bodyList, SystemCode systemCode, String businessCode, String message) {
         ResponseHeader responseHeader = ResponseHeader.builder().systemCode(systemCode).businessCode(businessCode).message(message).build();

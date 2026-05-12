@@ -7,15 +7,12 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 import jakarta.persistence.Table;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import io.bitexpress.topia.commons.data.model.MutableModel;
 
-public class OracleLock<ID extends Serializable> implements LockOrder<String> {
+import lombok.extern.slf4j.Slf4j;
 
-	private static final Logger logger = LoggerFactory
-			.getLogger(OracleLock.class);
+@Slf4j
+public class OracleLock<ID extends Serializable> implements LockOrder<String> {
 
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -30,7 +27,7 @@ public class OracleLock<ID extends Serializable> implements LockOrder<String> {
 		Table declaredAnnotation = entityClass.getAnnotation(Table.class);
 		String sql = String.format(lockSqlTemplate, idColumn,
 				declaredAnnotation.name(), idColumn, timeout);
-		logger.trace("lockSql:{}", sql);
+		log.trace("lockSql:{}", sql);
 
 		Query nativeQuery = entityManager.createNativeQuery(sql);
 		nativeQuery.setParameter(1, id);

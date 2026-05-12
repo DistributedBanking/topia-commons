@@ -1,7 +1,8 @@
 package io.bitexpress.topia.commons.basic.schedule;
 
-import java.util.Date;
+import java.time.Instant;
 
+import org.springframework.lang.Nullable;
 import org.springframework.scheduling.Trigger;
 import org.springframework.scheduling.TriggerContext;
 
@@ -12,12 +13,12 @@ public class SwitchTrigger implements Trigger {
 	private boolean enabled;
 
 	@Override
-	public Date nextExecutionTime(TriggerContext context) {
+	@Nullable
+	public Instant nextExecution(TriggerContext context) {
 		if (enabled) {
-			return trigger.nextExecutionTime(context);
-		} else {
-			return null;
+			return trigger.nextExecution(context);
 		}
+		return null;
 	}
 
 	public void setTrigger(Trigger trigger) {

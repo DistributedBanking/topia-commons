@@ -1,6 +1,5 @@
 package io.bitexpress.topia.commons.basic.servlet.filter;
 
-import org.apache.commons.logging.LogFactory;
 import org.springframework.web.filter.CommonsRequestLoggingFilter;
 
 import jakarta.servlet.http.HttpServletRequest;

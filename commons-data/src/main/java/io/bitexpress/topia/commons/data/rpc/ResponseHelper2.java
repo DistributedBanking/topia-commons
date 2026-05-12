@@ -12,16 +12,16 @@ import io.bitexpress.topia.commons.rpc.response.ListBodyResponse;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.dozer.Mapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.data.domain.Page;
 
 import java.io.Serializable;
 import java.util.List;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class ResponseHelper2<DOMAIN, MODEL extends Serializable> implements InitializingBean {
-    private static final Logger logger = LoggerFactory.getLogger(ResponseHelper2.class);
 
     protected Class<MODEL> modelClass;
 
@@ -62,7 +62,7 @@ public class ResponseHelper2<DOMAIN, MODEL extends Serializable> implements Init
     }
 
     public <K> BodyResponse<MODEL> returnError(K key, Exception e) {
-        logger.error("", e);
+        log.error("", e);
         BodyResponse<MODEL> sor = BodyResponseUtils.codeBodyResponse(null, SystemCode.FAILURE, null,
                 e.getMessage());
 

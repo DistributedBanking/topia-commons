@@ -10,12 +10,11 @@ import org.hibernate.HibernateException;
 import org.hibernate.MappingException;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.generator.GeneratorCreationContext;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class OrderSequenceGenerator extends StringSequenceGenerator {
-
-	private static final Logger logger = LoggerFactory.getLogger(OrderSequenceGenerator.class);
 
 	public static final int DEFAULT_SEQUENCE_LENGTH = 9;
 	private String prefix;
@@ -38,7 +37,7 @@ public class OrderSequenceGenerator extends StringSequenceGenerator {
 		String id = (String) super.generate(session, object);
 		String datePattern = date ? DATE_FORMAT.format(new Date()) : "";
 		id = StringUtils.defaultString(prefix) + datePattern + StringUtils.leftPad(id, sequenceLength, '0');
-		logger.trace("generated id:{}", id);
+		log.trace("generated id:{}", id);
 		return id;
 	}
 

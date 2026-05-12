@@ -3,14 +3,12 @@ package io.bitexpress.topia.commons.basic.patroller;
 import java.util.List;
 
 import org.apache.commons.lang3.Validate;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import io.bitexpress.topia.commons.basic.competition.LockTemplate2;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class ParallelPatroller {
-
-	private Logger scheduleLogger = LoggerFactory.getLogger(ParallelPatroller.class);
 
 	public static final String DEFAULT_KEY = "PATROL";
 
@@ -21,18 +19,18 @@ public class ParallelPatroller {
 	private String lockKey = DEFAULT_KEY;
 
 	public void patrol() {
-		scheduleLogger.info("patrol begin:{}", lockKey);
+		log.info("patrol begin:{}", lockKey);
 		lockTemplate.execute(lockKey, () -> {
 			patrollers.parallelStream().forEach(t -> {
 				try {
 					t.patrol();
 				} catch (Exception e) {
-					scheduleLogger.error("", e);
+					log.error("", e);
 				}
 			});
 			return null;
 		});
-		scheduleLogger.info("patrol end:{}", lockKey);
+		log.info("patrol end:{}", lockKey);
 	}
 
 	public void setPatrollers(List<Patroller> patrollers) {
@@ -46,10 +44,5 @@ public class ParallelPatroller {
 	public void setLockKey(String lockKey) {
 		Validate.notBlank(lockKey, "lockKey is blank");
 		this.lockKey = lockKey;
-	}
-
-	public void setLoggerName(String loggerName) {
-		Validate.notBlank(loggerName, "loggerName is blank");
-		scheduleLogger = LoggerFactory.getLogger(loggerName);
 	}
 }

@@ -2,16 +2,15 @@ package io.bitexpress.topia.commons.basic.cache;
 
 import java.util.Collection;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 
 import com.google.common.cache.CacheStats;
 
-public class GuavaCacheExpirer {
+import lombok.extern.slf4j.Slf4j;
 
-	private static final Logger logger = LoggerFactory.getLogger(GuavaCacheExpirer.class);
+@Slf4j
+public class GuavaCacheExpirer {
 
 	private CacheManager cacheManager;
 
@@ -28,7 +27,7 @@ public class GuavaCacheExpirer {
 				com.google.common.cache.Cache nativeCache = (com.google.common.cache.Cache) cache.getNativeCache();
 				nativeCache.cleanUp();
 				CacheStats stats = nativeCache.stats();
-				logger.trace("cache name:{}, size:{}, {}", string, nativeCache.size(), stats);
+				log.trace("cache name:{}, size:{}, {}", string, nativeCache.size(), stats);
 			}
 		}
 	}

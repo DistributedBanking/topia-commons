@@ -5,12 +5,12 @@ import java.util.concurrent.TimeUnit;
 import org.apache.commons.lang3.exception.ContextedRuntimeException;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.recipes.locks.InterProcessMutex;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Required;
 
+import jakarta.validation.constraints.NotNull;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class CuratorLockTemplate implements LockTemplate2 {
-	private Logger logger = LoggerFactory.getLogger(CuratorLockTemplate.class);
 
 	private CuratorFramework curatorFramework;
 
@@ -29,9 +29,9 @@ public class CuratorLockTemplate implements LockTemplate2 {
 		try {
 			boolean tryLock = false;
 			try {
-				logger.trace("try locking:{}", lockKeyPath);
+				log.trace("try locking:{}", lockKeyPath);
 				tryLock = lock.acquire(0, TimeUnit.MILLISECONDS);
-				logger.trace("locked {}:{}", tryLock, lockKeyPath);
+				log.trace("locked {}:{}", tryLock, lockKeyPath);
 			} catch (Exception e) {
 				throw new ContextedRuntimeException(e);
 			}
@@ -43,28 +43,22 @@ public class CuratorLockTemplate implements LockTemplate2 {
 		} finally {
 			try {
 				if (lock.isOwnedByCurrentThread()) {
-					logger.trace("unlocking:{}", lockKeyPath);
+					log.trace("unlocking:{}", lockKeyPath);
 					lock.release();
-					logger.trace("unlocked:{}", lockKeyPath);
+					log.trace("unlocked:{}", lockKeyPath);
 				}
 			} catch (Exception e) {
-				logger.error("unlock fail", e);
+				log.error("unlock fail", e);
 			}
 		}
 	}
 
-	@Required
-	public void setCuratorFramework(CuratorFramework curatorFramework) {
+	public void setCuratorFramework(@NotNull CuratorFramework curatorFramework) {
 		this.curatorFramework = curatorFramework;
 	}
 
-	@Required
-	public void setPathPrefix(String pathPrefix) {
+	public void setPathPrefix(@NotNull String pathPrefix) {
 		this.pathPrefix = pathPrefix;
-	}
-
-	public void setLoggerName(String loggerName) {
-		this.logger = LoggerFactory.getLogger(loggerName);
 	}
 
 }

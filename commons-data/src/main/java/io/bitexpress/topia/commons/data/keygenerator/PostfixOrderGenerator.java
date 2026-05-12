@@ -10,14 +10,13 @@ import org.hibernate.HibernateException;
 import org.hibernate.MappingException;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.generator.GeneratorCreationContext;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import jodd.bean.BeanUtil;
 
-public class PostfixOrderGenerator extends StringSequenceGenerator {
+import lombok.extern.slf4j.Slf4j;
 
-	private static final Logger logger = LoggerFactory.getLogger(PostfixOrderGenerator.class);
+@Slf4j
+public class PostfixOrderGenerator extends StringSequenceGenerator {
 
 	public static final int DEFAULT_SEQUENCE_LENGTH = 9;
 
@@ -46,7 +45,7 @@ public class PostfixOrderGenerator extends StringSequenceGenerator {
 		String id = (String) super.generate(session, object);
 		String datePattern = DATE_FORMAT.format(new Date());
 		id = datePattern + StringUtils.leftPad(id, sequenceLength, '0') + postfix;
-		logger.trace("generated id:{}", id);
+		log.trace("generated id:{}", id);
 		return id;
 	}
 

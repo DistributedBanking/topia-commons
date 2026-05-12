@@ -5,17 +5,15 @@ import java.lang.reflect.Method;
 
 import org.apache.commons.lang3.Validate;
 import org.apache.commons.lang3.exception.ContextedRuntimeException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 
 import com.google.common.base.Stopwatch;
 import io.bitexpress.topia.commons.basic.competition.LockCallback;
 import io.bitexpress.topia.commons.basic.competition.LockTemplate2;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class MutexPatroller implements InitializingBean {
-
-	private Logger scheduleLogger = LoggerFactory.getLogger(MutexPatroller.class);
 
 	private LockTemplate2 lockTemplate;
 
@@ -34,7 +32,7 @@ public class MutexPatroller implements InitializingBean {
 	public void patrol() {
 		Stopwatch stopwatch = Stopwatch.createStarted();
 		try {
-			scheduleLogger.info("patrol begin:{}", lockKey);
+			log.info("patrol begin:{}", lockKey);
 			lockTemplate.execute(lockKey, new LockCallback<Void>() {
 
 				@Override
@@ -49,7 +47,7 @@ public class MutexPatroller implements InitializingBean {
 			});
 		} finally {
 			stopwatch.stop();
-			scheduleLogger.info("patrol end:{}, cost:{}", lockKey, stopwatch);
+			log.info("patrol end:{}, cost:{}", lockKey, stopwatch);
 		}
 	}
 
@@ -68,11 +66,6 @@ public class MutexPatroller implements InitializingBean {
 	public void setLockKey(String lockKey) {
 		Validate.notBlank(lockKey, "lockKey is blank");
 		this.lockKey = lockKey;
-	}
-
-	public void setLoggerName(String loggerName) {
-		Validate.notBlank(loggerName, "loggerName is blank");
-		scheduleLogger = LoggerFactory.getLogger(loggerName);
 	}
 
 }

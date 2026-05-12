@@ -3,7 +3,7 @@ package io.bitexpress.topia.commons.idempotence;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionTemplate;
@@ -19,7 +19,7 @@ public class IdempotenceTemplate<T, RI extends IdObject<Long>> {
 
 	private OrderExecutor<T, Void> orderExecutor;
 
-	private PagingAndSortingRepository<T, Long> crudRepository;
+	private CrudRepository<T, Long> crudRepository;
 
 	private TransactionTemplate transactionTemplate;
 
@@ -84,7 +84,7 @@ public class IdempotenceTemplate<T, RI extends IdObject<Long>> {
 		this.orderExecutor = orderExecutor;
 	}
 
-	public void setCrudRepository(PagingAndSortingRepository<T, Long> crudRepository) {
+	public void setCrudRepository(CrudRepository<T, Long> crudRepository) {
 		this.crudRepository = crudRepository;
 	}
 

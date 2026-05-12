@@ -4,8 +4,6 @@ import io.bitexpress.topia.commons.rpc.BusinessCode;
 import io.bitexpress.topia.commons.rpc.SystemCode;
 import io.bitexpress.topia.commons.rpc.response.MapBodyResponse;
 import io.bitexpress.topia.commons.rpc.response.ResponseHeader;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.Map;
 
@@ -15,7 +13,6 @@ import java.util.Map;
  * @author shenyue
  */
 public class MapBodyResponseUtils {
-    private static final Logger logger = LoggerFactory.getLogger(MapBodyResponseUtils.class);
 
     public static <K, V> MapBodyResponse<K, V> codeMapResultResponse(Map<K, V> result, SystemCode systemCode,
                                                                      String businessCode, String message) {

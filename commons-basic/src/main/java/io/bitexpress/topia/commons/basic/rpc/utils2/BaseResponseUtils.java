@@ -9,8 +9,6 @@ import io.bitexpress.topia.commons.rpc.response.ResponseHeader;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.function.Function;
 
@@ -20,8 +18,6 @@ import java.util.function.Function;
  * @author shenyue
  */
 public class BaseResponseUtils {
-
-    private static final Logger logger = LoggerFactory.getLogger(BaseResponseUtils.class);
 
     public static BaseResponse successBaseResponse() {
         return successBaseResponse(null);

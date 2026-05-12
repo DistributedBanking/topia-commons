@@ -14,6 +14,7 @@
         <maven.compiler.release>25</maven.compiler.release>
         <maven.toolchain.jdk.version>25</maven.toolchain.jdk.version>
         <lombok.version>1.18.46</lombok.version>
+        <dubbo.version>3.3.6</dubbo.version>
         <jakarta.el-api.version>6.0.1</jakarta.el-api.version>
     </properties>
 
@@ -226,9 +227,19 @@
                 <version>2.20.0</version>
             </dependency>
             <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>1.17.1</version>
+            </dependency>
+            <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
                 <version>4.5.13</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents.client5</groupId>
+                <artifactId>httpclient5</artifactId>
+                <version>5.4.4</version>
             </dependency>
             <dependency>
                 <groupId>net.sf.dozer</groupId>
@@ -264,6 +275,11 @@
                 <groupId>org.apache.zookeeper</groupId>
                 <artifactId>zookeeper</artifactId>
                 <version>3.9.5</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>

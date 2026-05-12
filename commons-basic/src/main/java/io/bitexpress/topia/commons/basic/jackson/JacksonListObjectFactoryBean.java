@@ -5,8 +5,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.core.io.Resource;
+
+import jakarta.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -49,18 +50,15 @@ public class JacksonListObjectFactoryBean<T> implements FactoryBean<List<T>>, In
 		return true;
 	}
 
-	@Required
-	public void setObjectMapper(ObjectMapper objectMapper) {
+	public void setObjectMapper(@NotNull ObjectMapper objectMapper) {
 		this.objectMapper = objectMapper;
 	}
 
-	@Required
-	public void setJsonResource(Resource jsonResource) {
+	public void setJsonResource(@NotNull Resource jsonResource) {
 		this.jsonResource = jsonResource;
 	}
 
-	@Required
-	public void setObjectType(Class<T> objectType) {
+	public void setObjectType(@NotNull Class<T> objectType) {
 		this.objectType = objectType;
 	}
 }

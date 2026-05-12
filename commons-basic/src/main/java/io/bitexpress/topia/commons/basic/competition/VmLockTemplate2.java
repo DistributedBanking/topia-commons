@@ -7,11 +7,11 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 import org.apache.commons.lang3.exception.ContextedRuntimeException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class VmLockTemplate2 implements LockTemplate2 {
-	private static final Logger logger = LoggerFactory.getLogger(VmLockTemplate.class);
 
 	private ConcurrentMap<String, Lock> lockMap = new ConcurrentHashMap<>();
 
@@ -32,17 +32,17 @@ public class VmLockTemplate2 implements LockTemplate2 {
 		try {
 			boolean tryLock = lock.tryLock(0, TimeUnit.SECONDS);
 			if (!tryLock) {
-				logger.debug("lock failure,skip this turn.{}", lockKey);
+				log.debug("lock failure,skip this turn.{}", lockKey);
 				return null;
 			}
-			logger.trace("lock acquired:{}", lockKey);
+			log.trace("lock acquired:{}", lockKey);
 			T locked = lockCallback.locked();
 			return locked;
 		} catch (InterruptedException e) {
 			throw new ContextedRuntimeException(e);
 		} finally {
 			lock.unlock();
-			logger.trace("lock released:{}", lockKey);
+			log.trace("lock released:{}", lockKey);
 		}
 	}
 

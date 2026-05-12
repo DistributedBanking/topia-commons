@@ -5,8 +5,9 @@ import java.util.Map;
 
 import org.apache.commons.lang3.Validate;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.core.io.Resource;
+
+import jakarta.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Function;
@@ -62,23 +63,19 @@ public class ConfigReaderImpl<KEY, CONF> implements ConfigReader<KEY, CONF>, Ini
 		});
 	}
 
-	@Required
-	public void setObjectMapper(ObjectMapper objectMapper) {
+	public void setObjectMapper(@NotNull ObjectMapper objectMapper) {
 		this.objectMapper = objectMapper;
 	}
 
-	@Required
-	public void setJsonResource(Resource jsonResource) {
+	public void setJsonResource(@NotNull Resource jsonResource) {
 		this.jsonResource = jsonResource;
 	}
 
-	@Required
-	public void setKeyProperty(String keyProperty) {
+	public void setKeyProperty(@NotNull String keyProperty) {
 		this.keyProperty = keyProperty;
 	}
 
-	@Required
-	public void setObjectType(Class<CONF> objectType) {
+	public void setObjectType(@NotNull Class<CONF> objectType) {
 		this.objectType = objectType;
 	}
 
