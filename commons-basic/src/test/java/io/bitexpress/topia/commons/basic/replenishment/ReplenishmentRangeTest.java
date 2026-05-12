@@ -11,7 +11,7 @@ public class ReplenishmentRangeTest {
         ReplenishmentRange range = new ReplenishmentRange();
         Interval interval = range.getInterval();
         System.out.println(interval);
-        System.out.println(range.getRange());
+        System.out.println(range.getDateRange());
         System.out.println(range);
     }
 
