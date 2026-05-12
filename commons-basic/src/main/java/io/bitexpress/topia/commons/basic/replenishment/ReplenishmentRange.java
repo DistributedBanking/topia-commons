@@ -28,15 +28,9 @@ public class ReplenishmentRange {
     @Setter
     private Period endPeriod = DEFAULT_END_PERIOD;
 
-    /**
-     * 以后会删除内部赋值
-     */
-    @Deprecated
     public ReplenishmentRange() {
-        startPeriod = DEFAULT_START_PERIOD;
-        endPeriod = DEFAULT_END_PERIOD;
+        this(DEFAULT_START_PERIOD, DEFAULT_END_PERIOD);
     }
-
 
     public Interval getInterval() {
         DateTime startTime = new DateTime().minus(startPeriod);
@@ -44,14 +38,10 @@ public class ReplenishmentRange {
         return new Interval(startTime, endTime);
     }
 
-    @Deprecated
-    public Range<Date> getRange() {
-        return getDateRange();
-    }
 
     public Range<Date> getDateRange() {
         Interval interval = getInterval();
-        return Range.between(interval.getStart().toDate(), interval.getEnd().toDate());
+        return Range.of(interval.getStart().toDate(), interval.getEnd().toDate());
     }
 
 }
