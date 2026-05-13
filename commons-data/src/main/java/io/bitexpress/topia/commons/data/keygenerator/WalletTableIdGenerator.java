@@ -16,7 +16,7 @@ import java.util.EnumSet;
 import java.util.Properties;
 
 /**
- * 与 {@link WalletTableId} 配套；逻辑与 {@link TimeLongTableGenerator} 一致（{@link TableGenerator} + 日期前缀）。
+ * 与 {@link WalletTableId} 配套；逻辑与历史「表序列 + {@code yyyyMMdd} 前缀拼 long id」一致（{@link TableGenerator} + 日期前缀）。
  * 实现 {@link AnnotationBasedGenerator}，由 Hibernate 调用 {@link #initialize}，避免 Spring 把注解类型当成要注入的 Bean。
  */
 public final class WalletTableIdGenerator implements BeforeExecutionGenerator, AnnotationBasedGenerator<WalletTableId> {
