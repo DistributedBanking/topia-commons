@@ -13,6 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>25</maven.compiler.release>
         <maven.toolchain.jdk.version>25</maven.toolchain.jdk.version>
+        <lombok.version>1.18.46</lombok.version>
         <jakarta.el-api.version>6.0.1</jakarta.el-api.version>
         <jakarta.validation-api.version>3.0.2</jakarta.validation-api.version>
     </properties>
@@ -86,6 +87,13 @@
                         <jdkToolchain>
                             <version>${maven.toolchain.jdk.version}</version>
                         </jdkToolchain>
+                        <annotationProcessorPaths>
+                            <path>
+                                <groupId>org.projectlombok</groupId>
+                                <artifactId>lombok</artifactId>
+                                <version>${lombok.version}</version>
+                            </path>
+                        </annotationProcessorPaths>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -242,7 +250,7 @@
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>1.18.46</version>
+                <version>${lombok.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
