@@ -23,11 +23,11 @@ import static org.mockito.Mockito.when;
 /**
  * 纯 Mock，不依赖数据库；通过反射替换 {@link TableGenerator} 验证拼接与边界。
  */
-class WalletTableIdGeneratorTest {
+class TimeLongTableIdGeneratorTest {
 
     private static final long BASE = 1_000_000_000L;
 
-    private WalletTableIdGenerator generator;
+    private TimeLongTableIdGenerator generator;
 
     private AutoCloseable mocks;
 
@@ -40,7 +40,7 @@ class WalletTableIdGeneratorTest {
     @BeforeEach
     void setUp() throws Exception {
         mocks = MockitoAnnotations.openMocks(this);
-        generator = new WalletTableIdGenerator();
+        generator = new TimeLongTableIdGenerator();
         replaceTableGenerator(generator, tableGenerator);
     }
 
@@ -51,8 +51,8 @@ class WalletTableIdGeneratorTest {
         }
     }
 
-    private static void replaceTableGenerator(WalletTableIdGenerator gen, TableGenerator mock) throws Exception {
-        Field f = WalletTableIdGenerator.class.getDeclaredField("tableGenerator");
+    private static void replaceTableGenerator(TimeLongTableIdGenerator gen, TableGenerator mock) throws Exception {
+        Field f = TimeLongTableIdGenerator.class.getDeclaredField("tableGenerator");
         f.setAccessible(true);
         f.set(gen, mock);
     }
